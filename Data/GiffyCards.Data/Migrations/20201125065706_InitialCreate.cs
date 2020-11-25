@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GiffyCards.Data.Migrations
 {
-    public partial class InitialSetUp : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,8 +56,7 @@ namespace GiffyCards.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    BrandName = table.Column<string>(nullable: true),
-                    PictureUrl = table.Column<string>(nullable: true)
+                    BrandName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -158,6 +157,23 @@ namespace GiffyCards.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Shapes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedOn = table.Column<DateTime>(nullable: true),
+                    ShapeName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shapes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Sizes",
                 columns: table => new
                 {
@@ -167,7 +183,6 @@ namespace GiffyCards.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    Shape = table.Column<string>(nullable: true),
                     Lenght = table.Column<string>(nullable: true),
                     RingRange = table.Column<string>(nullable: true)
                 },
@@ -194,7 +209,7 @@ namespace GiffyCards.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Taste",
+                name: "Tastes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -203,12 +218,11 @@ namespace GiffyCards.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    TasteType = table.Column<string>(nullable: true),
-                    PictureUrl = table.Column<string>(nullable: true)
+                    TasteType = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Taste", x => x.Id);
+                    table.PrimaryKey("PK_Tastes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -282,7 +296,7 @@ namespace GiffyCards.Data.Migrations
                     DescriptionId = table.Column<int>(nullable: true),
                     ReviewId = table.Column<int>(nullable: true),
                     QuestionId = table.Column<int>(nullable: true),
-                    PricePerUnit = table.Column<decimal>(nullable: false),
+                    PricePerUnit = table.Column<decimal>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -319,6 +333,7 @@ namespace GiffyCards.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     BrandId = table.Column<int>(nullable: true),
+                    CigarName = table.Column<string>(nullable: true),
                     StrenghtId = table.Column<int>(nullable: true),
                     TasteId = table.Column<int>(nullable: true),
                     ReviewId = table.Column<int>(nullable: true),
@@ -326,8 +341,8 @@ namespace GiffyCards.Data.Migrations
                     QuestionId = table.Column<int>(nullable: true),
                     Bland = table.Column<string>(nullable: true),
                     DescriptionId = table.Column<int>(nullable: true),
-                    PricePerUnit = table.Column<decimal>(nullable: false),
-                    PictureUrl = table.Column<string>(nullable: true)
+                    ShapeId = table.Column<int>(nullable: true),
+                    PricePerUnit = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -357,6 +372,12 @@ namespace GiffyCards.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
+                        name: "FK_Cigars_Shapes_ShapeId",
+                        column: x => x.ShapeId,
+                        principalTable: "Shapes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
                         name: "FK_Cigars_Sizes_SizeId",
                         column: x => x.SizeId,
                         principalTable: "Sizes",
@@ -369,9 +390,9 @@ namespace GiffyCards.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Cigars_Taste_TasteId",
+                        name: "FK_Cigars_Tastes_TasteId",
                         column: x => x.TasteId,
-                        principalTable: "Taste",
+                        principalTable: "Tastes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -677,6 +698,11 @@ namespace GiffyCards.Data.Migrations
                 column: "ReviewId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Cigars_ShapeId",
+                table: "Cigars",
+                column: "ShapeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cigars_SizeId",
                 table: "Cigars",
                 column: "SizeId");
@@ -772,6 +798,11 @@ namespace GiffyCards.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Shapes_IsDeleted",
+                table: "Shapes",
+                column: "IsDeleted");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Sizes_IsDeleted",
                 table: "Sizes",
                 column: "IsDeleted");
@@ -782,8 +813,8 @@ namespace GiffyCards.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Taste_IsDeleted",
-                table: "Taste",
+                name: "IX_Tastes_IsDeleted",
+                table: "Tastes",
                 column: "IsDeleted");
         }
 
@@ -847,13 +878,16 @@ namespace GiffyCards.Data.Migrations
                 name: "Reviews");
 
             migrationBuilder.DropTable(
+                name: "Shapes");
+
+            migrationBuilder.DropTable(
                 name: "Sizes");
 
             migrationBuilder.DropTable(
                 name: "Strenghts");
 
             migrationBuilder.DropTable(
-                name: "Taste");
+                name: "Tastes");
         }
     }
 }

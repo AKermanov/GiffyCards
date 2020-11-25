@@ -25,7 +25,7 @@
 
         public virtual Question Question { get; set; }
 
-        public decimal PricePerUnit { get; set; }
+        public decimal? PricePerUnit { get; set; }
 
         public string PictureUrl { get; set; }
 

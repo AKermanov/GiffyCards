@@ -52,6 +52,10 @@
 
         public DbSet<Strenght> Strenghts { get; set; }
 
+        public DbSet<Shape> Shapes { get; set; }
+
+        public DbSet<Taste> Tastes { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

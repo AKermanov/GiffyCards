@@ -16,7 +16,7 @@ namespace GiffyCards.Data.Seeding
                 return;
             }
 
-            var strenght = new string[] { "Light", "Light-Medium", "Medium", "Medium-Full", "Full" };
+            var strenght = new string[] { "Light", "Light-medium", "Medium", "Medium-Full", "Full" };
 
             for (int i = 0; i < strenght.Length; i++)
             {

@@ -1,12 +1,13 @@
-﻿using GiffyCards.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GiffyCards.Data.Seeding
+﻿namespace GiffyCards.Data.Seeding
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    using GiffyCards.Data.Models;
+
     public class CigarTasteSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
@@ -16,7 +17,7 @@ namespace GiffyCards.Data.Seeding
                 return;
             }
 
-            var taste = new string[] { "SPICY", "WOODY", "LEATHERLY", "VEGETAL", "EARTHY", "FRUTY" };
+            var taste = new string[] { "spicy", "woody", "leatherly", "vegetal", "earthy", "fruty" };
 
             for (int i = 0; i < taste.Length; i++)
             {

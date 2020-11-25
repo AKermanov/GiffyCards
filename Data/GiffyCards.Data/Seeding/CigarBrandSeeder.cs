@@ -16,9 +16,9 @@
                 return;
             }
 
-            var brands = new string[] {"Bolivar", "Cohiba", "Cuaba", "Diplomaticos", "El Rey Del Mundo", "Fonseca" , "Hoyo de Monterrey",
+            var brands = new string[] {"Bolivar", "Cohiba", "Cuaba", "Diplomaticos", "El Rey Del Mundo", "Fonseca", "Hoyo de Monterrey",
             "H. Upman", "Jose L. Piedra", "Juan Lopez", "La Gloria Cubana", "Montecristo", "Partagas", "Punch", "Quai Dorsay", "Quintero",
-            "Ramon Allones", "Romei y Julieta", "San Cristobal", "Trinidad", "Vegas Robain", "Vegueros", "Davidoff (non-Cuban)", "Limited Editions", };
+            "Ramon Allones", "Romei y Julieta", "San Cristobal", "Trinidad", "Vegas Robain", "Vegueros", "Davidoff", "Limited Editions", };
 
             var list = new List<Brand>();
 

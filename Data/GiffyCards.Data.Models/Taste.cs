@@ -13,8 +13,6 @@
 
         public string TasteType { get; set; }
 
-        public string PictureUrl { get; set; }
-
         public virtual ICollection<Cigar> Cigars { get; set; }
     }
 }

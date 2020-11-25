@@ -15,6 +15,8 @@
 
         public virtual Brand Brand { get; set; }
 
+        public string CigarName { get; set; }
+
         public int? StrenghtId { get; set; }
 
         public virtual Strenght Strenght { get; set; }
@@ -41,9 +43,11 @@
 
         public Description Description { get; set; }
 
-        public decimal PricePerUnit { get; set; }
+        public int? ShapeId { get; set; }
 
-        public string PictureUrl { get; set; }
+        public Shape Shape { get; set; }
+
+        public decimal PricePerUnit { get; set; }
 
         public virtual ICollection<OrderProducts> OrderProducts { get; set; }
     }

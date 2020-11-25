@@ -4,16 +4,14 @@
 
     using GiffyCards.Data.Common.Models;
 
-    public class Size : BaseDeletableModel<int>
+    public class Shape : BaseDeletableModel<int>
     {
-        public Size()
+        public Shape()
         {
             this.Cigars = new HashSet<Cigar>();
         }
 
-        public string Lenght { get; set; }
-
-        public string RingRange { get; set; }
+        public string ShapeName { get; set; }
 
         public virtual ICollection<Cigar> Cigars { get; set; }
     }

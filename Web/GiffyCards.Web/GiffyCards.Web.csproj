@@ -44,6 +44,10 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\BrandImages\" />
     <Folder Include="wwwroot\images\AccessoriesImages\" />
+    <Folder Include="wwwroot\images\AccsProductImages\" />
+    <Folder Include="wwwroot\images\CIgarImages\Bolivar\CoronasJunior\" />
+    <Folder Include="wwwroot\images\CIgarImages\Cohiba\" />
+    <Folder Include="wwwroot\images\TasteImages\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,6 +61,48 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\AccessoriesImages\lighter-slice-cutter-gift-set-black.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\200bk_xi2-noir-cutter_9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\565g2_ellipseiii-g2_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\adorini-double-punch-cutter-6.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\adorini-hygrometer-thermometer-compact-2_2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\adorini-hygrometer-thermometer-digital-2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\adorini_jet_lighter_white.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\flash-lighter-3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\forte-lighter-3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\pouch.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\turismo-double-3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\vx2-6_1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\xikar-envoy-triple-cigar-case-2_1_1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\xikar-xi1-cigar-cutter-silver_8_1_1_1_1_1_1_1_1_2_4_1_9.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\AccsProductImages\xo2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\BrandImages\brand_bolivar.jpg">
@@ -129,6 +175,39 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\BrandImages\Vegueros.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\CIgarImages\Bolivar\CoronasJunior\bolivar-coronas-junior_3_2_1_1_1_1_1_1_1_2_4_1_11.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\CIgarImages\Bolivar\CoronasJunior\bolivar-coronas-junior_5_1_11.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\CIgarImages\Bolivar\RoyalCoronas\bolivar-royal-coronas_2_2_1_1_1_1_1_1_1_2_4_1_11.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\CIgarImages\Bolivar\RoyalCoronas\bolivar-royal-coronas_3_2_1_1_1_1_1_1_1_2_4_1_11 (1).jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\CIgarImages\Bolivar\RoyalCoronas\bolivar-royal-coronas_6_1_2_1_1_1_4_1_1_1_1_1_1_1_1_2_4_1_10.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\TasteImages\menu_taste_earthy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\TasteImages\menu_taste_fruity.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\TasteImages\menu_taste_leathery.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\TasteImages\menu_taste_spicy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\TasteImages\menu_taste_vegetal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\TasteImages\menu_taste_woody.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

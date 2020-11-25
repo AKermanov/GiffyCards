@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GiffyCards.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201123142048_InitialSetUp")]
-    partial class InitialSetUp
+    [Migration("20201125065706_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace GiffyCards.Data.Migrations
                     b.Property<string>("PictureUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("PricePerUnit")
+                    b.Property<decimal?>("PricePerUnit")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("QuestionId")
@@ -259,9 +259,6 @@ namespace GiffyCards.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PictureUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("IsDeleted");
@@ -282,6 +279,9 @@ namespace GiffyCards.Data.Migrations
                     b.Property<int?>("BrandId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CigarName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -297,9 +297,6 @@ namespace GiffyCards.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PictureUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("PricePerUnit")
                         .HasColumnType("decimal(18,2)");
 
@@ -307,6 +304,9 @@ namespace GiffyCards.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("ReviewId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ShapeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("SizeId")
@@ -329,6 +329,8 @@ namespace GiffyCards.Data.Migrations
                     b.HasIndex("QuestionId");
 
                     b.HasIndex("ReviewId");
+
+                    b.HasIndex("ShapeId");
 
                     b.HasIndex("SizeId");
 
@@ -632,6 +634,35 @@ namespace GiffyCards.Data.Migrations
                     b.ToTable("Settings");
                 });
 
+            modelBuilder.Entity("GiffyCards.Data.Models.Shape", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ShapeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Shapes");
+                });
+
             modelBuilder.Entity("GiffyCards.Data.Models.Size", b =>
                 {
                     b.Property<int>("Id")
@@ -655,9 +686,6 @@ namespace GiffyCards.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("RingRange")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Shape")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -715,9 +743,6 @@ namespace GiffyCards.Data.Migrations
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("PictureUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("TasteType")
                         .HasColumnType("nvarchar(max)");
 
@@ -725,7 +750,7 @@ namespace GiffyCards.Data.Migrations
 
                     b.HasIndex("IsDeleted");
 
-                    b.ToTable("Taste");
+                    b.ToTable("Tastes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -873,6 +898,10 @@ namespace GiffyCards.Data.Migrations
                     b.HasOne("GiffyCards.Data.Models.Review", "Review")
                         .WithMany("Cigars")
                         .HasForeignKey("ReviewId");
+
+                    b.HasOne("GiffyCards.Data.Models.Shape", "Shape")
+                        .WithMany("Cigars")
+                        .HasForeignKey("ShapeId");
 
                     b.HasOne("GiffyCards.Data.Models.Size", "Size")
                         .WithMany("Cigars")
