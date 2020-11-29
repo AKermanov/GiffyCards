@@ -1,12 +1,13 @@
-﻿using GiffyCards.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GiffyCards.Data.Seeding
+﻿namespace GiffyCards.Data.Seeding
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using GiffyCards.Common;
+    using GiffyCards.Data.Models;
+
     public class CigarSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
@@ -16,94 +17,61 @@ namespace GiffyCards.Data.Seeding
                 return;
             }
 
-            var cigarNameList = new string[] { "BOLIVAR CORONAS JUNIOR", "BOLIVAR PETIT CORONAS", "BOLIVAR ROYAL CORONAS", "COHIBA 1966 EDICION LIMITADA 2011- NO DISCOUNTS APPLY", "COHIBA BEHIKE 52",
-            "COHIBA BEHIKE 54", "COHIBA BEHIKE 56" };
-            var unitPrice = new decimal[] { 8.00m, 9.00m, 12.50m, 337.00m, 175.00m, 169.00m, 194.00m };
-            var lengthRangeList = new string[] { "4", "5", "4", "6", "4", "5", "6" };
-            var ringRangeList = new string[] { "42", "42", "50", "52", "52", "54", "56" };
-            var shapeList = new string[] { "Corona", "Petit Corona", "Robusto", "Double Robusto", "Petit Robusto", "Robusto Extra", "Double Robusto" };
-            var testeList = new string[] { "Earthy", "Earthy", "Spicy", "Spicy", "Woody", "Woody", "Woody" };
-            var strenghtList = new string[] { "Full", "Medium to Full", "Medium to Full", "Medium to Full", "Medium to Full", "Medium to Full", "Full" };
-
             var list = new List<Cigar>();
 
-            for (int i = 0; i < cigarNameList.Length; i++)
+            for (int i = 0; i < CigarSeedDataConstants.CigarNameList.Length; i++)
             {
-                string brandName = cigarNameList[i].Split(" ")[0];
+                string brandName = CigarSeedDataConstants.CigarNameList[i].Split(" ")[0];
 
                 var cigar = new Cigar
                 {
-                    Brand = BrandFinder(dbContext, brandName),
-                    Strenght = StrenghtFinder(dbContext, strenghtList[i]),
-                    Size = SizeFinder(lengthRangeList[i], ringRangeList[i]),
-                    Taste = TasteFinder(dbContext, testeList[i]),
-                    Shape = ShapeFinder(dbContext, shapeList[i]),
-                    CigarName = cigarNameList[i],
+                    BrandId = BrandFinder(dbContext, brandName),
+                    StrenghtId = StrenghtFinder(dbContext, CigarSeedDataConstants.StrenghtList[i]),
+                    SizeId = SizeFinder(dbContext, CigarSeedDataConstants.LengthRangeList[i], CigarSeedDataConstants.RingRangeList[i]),
+                    TasteId = TasteFinder(dbContext, CigarSeedDataConstants.TesteList[i]),
+                    ShapeId = ShapeFinder(dbContext, CigarSeedDataConstants.ShapeList[i]),
+                    CigarName = CigarSeedDataConstants.CigarNameList[i],
                     Bland = "regular",
-                    PricePerUnit = unitPrice[i],
+                    PricePerUnit = CigarSeedDataConstants.UnitPrice[i],
 
                 };
 
                 list.Add(cigar);
             }
+
             dbContext.AddRange(list);
             dbContext.SaveChanges();
         }
 
-        private static Size SizeFinder(string lenght, string ringRange)
+        private static int SizeFinder(ApplicationDbContext dbContext, string lenght, string ringRange)
         {
-            return new Size
-            {
-                Lenght = lenght,
-                RingRange = ringRange,
-                CreatedOn = DateTime.UtcNow,
-                IsDeleted = false,
+            var currSize = dbContext.Sizes.FirstOrDefault(x => x.Lenght.ToLower() == lenght.ToLower() && x.RingRange.ToLower() == ringRange.ToLower());
 
-            };
+            return currSize.Id;
         }
 
-        private static Shape ShapeFinder(ApplicationDbContext dbContext, string shape)
+        private static int ShapeFinder(ApplicationDbContext dbContext, string shapeType)
         {
-            var currShape = dbContext.Shapes.FirstOrDefault(x => x.ShapeName.ToLower() == shape.ToLower());
-
-            if (currShape is null)
-            {
-                return new Shape
-                {
-                    ShapeName = shape.ToLower(),
-                    CreatedOn = DateTime.UtcNow,
-                    IsDeleted = false,
-                };
-            }
-
-            return currShape;
+            var currShape = dbContext.Shapes.FirstOrDefault(x => x.ShapeName == shapeType);
+            return currShape.Id;
         }
 
-        private static Taste TasteFinder(ApplicationDbContext dbContext, string taste)
+        private static int TasteFinder(ApplicationDbContext dbContext, string taste)
         {
-            return dbContext.Tastes.FirstOrDefault(x => x.TasteType == taste.ToLower());
+            var currTaste = dbContext.Tastes.FirstOrDefault(x => x.TasteType == taste);
+            return currTaste.Id;
         }
 
-        private static Strenght StrenghtFinder(ApplicationDbContext dbContext, string strength)
+        private static int StrenghtFinder(ApplicationDbContext dbContext, string strength)
         {
-            var strngth = dbContext.Strenghts.FirstOrDefault(x => x.StrenghtType == strength);
-
-            if (strength is null)
-            {
-                return new Strenght
-                {
-                    StrenghtType = strength,
-                    CreatedOn = DateTime.UtcNow,
-                    IsDeleted = false,
-                };
-            }
-
-            return strngth;
+            var currStr = dbContext.Strenghts.FirstOrDefault(x => x.StrenghtType == strength);
+            return currStr.Id;
         }
 
-        private static Brand BrandFinder(ApplicationDbContext dbContext, string brand)
+        private static int BrandFinder(ApplicationDbContext dbContext, string brand)
         {
-            return dbContext.Brands.FirstOrDefault(x => x.BrandName.ToLower() == brand.ToLower());
+            var currTBrand = dbContext.Brands.FirstOrDefault(x => x.BrandName == brand);
+            return currTBrand.Id;
         }
     }
 }

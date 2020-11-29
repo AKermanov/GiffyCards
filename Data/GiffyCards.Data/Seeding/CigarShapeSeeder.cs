@@ -8,36 +8,36 @@
     using GiffyCards.Common;
     using GiffyCards.Data.Models;
 
-    public class CigarStrenghtSeeder : ISeeder
+    public class CigarShapeSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            if (dbContext.Strenghts.Any())
+            if (dbContext.Shapes.Any())
             {
                 return;
             }
 
-            var list = new List<Strenght>();
+            var list = new List<Shape>();
 
-            for (int i = 0; i < CigarSeedDataConstants.StrenghtList.Length; i++)
+            for (int i = 0; i < CigarSeedDataConstants.ShapeList.Length; i++)
             {
-
-                var currentStrenght = new Strenght
+                var name = CigarSeedDataConstants.ShapeList[i];
+                var currentShape = new Shape
                 {
-                    StrenghtType = CigarSeedDataConstants.StrenghtList[i],
+                    ShapeName = name,
                     CreatedOn = DateTime.UtcNow,
                     IsDeleted = false,
                 };
 
-                var str = list.FirstOrDefault(x => x.StrenghtType == currentStrenght.StrenghtType);
+                var shape = list.FirstOrDefault(x => x.ShapeName == name);
 
-                if (str is null)
+                if (shape is null)
                 {
-                    list.Add(currentStrenght);
+                    list.Add(currentShape);
                 }
             }
 
-            dbContext.Strenghts.AddRange(list);
+            dbContext.Shapes.AddRange(list);
             dbContext.SaveChanges();
         }
     }

@@ -27,10 +27,14 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
-                              new CigarTasteSeeder(),
-                              new CigarStrenghtSeeder(),
+                              new AccessoriesSeeder(),
                               new CigarBrandSeeder(),
+                              new CigarShapeSeeder(),
+                              new CigarStrenghtSeeder(),
+                              new CigarTasteSeeder(),
+                              new CigarSizeSeeder(),
                               new CigarSeeder(),
+
                           };
 
             foreach (var seeder in seeders)

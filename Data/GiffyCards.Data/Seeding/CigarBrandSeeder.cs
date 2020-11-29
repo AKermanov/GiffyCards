@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using GiffyCards.Common;
     using GiffyCards.Data.Models;
 
     public class CigarBrandSeeder : ISeeder
@@ -16,25 +17,28 @@
                 return;
             }
 
-            var brands = new string[] {"Bolivar", "Cohiba", "Cuaba", "Diplomaticos", "El Rey Del Mundo", "Fonseca", "Hoyo de Monterrey",
-            "H. Upman", "Jose L. Piedra", "Juan Lopez", "La Gloria Cubana", "Montecristo", "Partagas", "Punch", "Quai Dorsay", "Quintero",
-            "Ramon Allones", "Romei y Julieta", "San Cristobal", "Trinidad", "Vegas Robain", "Vegueros", "Davidoff", "Limited Editions", };
-
             var list = new List<Brand>();
 
-            for (int i = 0; i < brands.Length; i++)
+            for (int i = 0; i < CigarSeedDataConstants.CigarNameList.Length; i++)
             {
-                var current = new Brand
+                string brandName = CigarSeedDataConstants.CigarNameList[i].Split(" ")[0];
+
+                var currentBrand = new Brand
                 {
-                    BrandName = brands[i],
+                    BrandName = brandName,
                     CreatedOn = DateTime.UtcNow,
                     IsDeleted = false,
                 };
 
-                list.Add(current);
+                var brand = list.FirstOrDefault(x => x.BrandName == currentBrand.BrandName);
+
+                if (brand is null)
+                {
+                    list.Add(currentBrand);
+                }
             }
 
-            dbContext.AddRange(list);
+            dbContext.Brands.AddRange(list);
             dbContext.SaveChanges();
         }
     }

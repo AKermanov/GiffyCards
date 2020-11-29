@@ -6,31 +6,39 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    using GiffyCards.Common;
     using GiffyCards.Data.Models;
 
     public class CigarTasteSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
-            if (dbContext.Strenghts.Any())
+            if (dbContext.Tastes.Any())
             {
                 return;
             }
 
-            var taste = new string[] { "spicy", "woody", "leatherly", "vegetal", "earthy", "fruty" };
+            var list = new List<Taste>();
 
-            for (int i = 0; i < taste.Length; i++)
+            for (int i = 0; i < CigarSeedDataConstants.TesteList.Length; i++)
             {
+
                 var currentTaste = new Taste
                 {
-                    TasteType = taste[i],
+                    TasteType = CigarSeedDataConstants.TesteList[i],
                     CreatedOn = DateTime.UtcNow,
                     IsDeleted = false,
                 };
 
-                dbContext.Add(currentTaste);
+                var taste = list.FirstOrDefault(x => x.TasteType == currentTaste.TasteType);
+
+                if (taste is null)
+                {
+                    list.Add(currentTaste);
+                }
             }
 
+            dbContext.Tastes.AddRange(list);
             dbContext.SaveChanges();
         }
     }
