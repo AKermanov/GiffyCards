@@ -30,7 +30,7 @@ namespace GiffyCards.Data.Models
 
         public DateTime? DeletedOn { get; set; }
 
-        public int CustomerPhotoId { get; set; }
+        public int? CustomerPhotoId { get; set; }
 
         public CustomerPhoto CustomerPhoto { get; set; }
 
