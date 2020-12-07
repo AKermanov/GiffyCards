@@ -38,8 +38,8 @@
                 }
             }
 
-            dbContext.Brands.AddRange(list);
-            dbContext.SaveChanges();
+            await dbContext.Brands.AddRangeAsync(list);
+            await dbContext.AddRangeAsync();
         }
     }
 }

@@ -39,8 +39,8 @@
                 list.Add(cigar);
             }
 
-            dbContext.AddRange(list);
-            dbContext.SaveChanges();
+            await dbContext.AddAsync(list);
+            await dbContext.SaveChangesAsync();
         }
 
         private static int SizeFinder(ApplicationDbContext dbContext, string lenght, string ringRange)

@@ -7,52 +7,415 @@
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css//bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/icon-font.min.css" />
+    <link rel="stylesheet" href="~/css//plugins.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <div class="header-section">
+            <!--Header Section Start-->
+            <div class="header-top header-top-one header-top-border pt-10 pb-10">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+
+
+                        <div class="col mt-10 mb-10">
+                            <!--Header Links Start -->
+                            <div class="header-links">
+                                <a asp-area="" asp-page="/TrackOrder"><img src="~/images/icons/car.png" alt="Car Icon"><span>Track your order</span></a>
+                                <a asp-area="" asp-page="/Store"><img src="~/images//icons/marker.png" alt="Car Icon"><span>Locate Store</span></a>
+                            </div>
+                        </div>
+
+                        <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
+                            <!--Search Engine-->
+                            <div class="header-advance-search">
+
+                                <form action="#">
+                                    <div class="input"><input type="text" placeholder="Search your product"></div>
+                                    <div class="select">
+                                        <select class="nice-select">
+                                            <option>All</option>
+                                            <option>Brands</option>
+                                            <option>Strength</option>
+                                            <option>Size</option>
+                                            <option>Taste</option>
+                                        </select>
+                                    </div>
+                                    <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
+                                </form>
+                            </div>  <!--Search Engine End-->
+                        </div>
+
+                        <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10">
+                            <partial name="_LoginPartial" />
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </nav>
+            <!-- Header Top End -->
+            <!-- Header Bottom Start -->
+            <div class="header-bottom header-bottom-one header-sticky">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+
+                        <div class="col mt-15 mb-15">
+                            <!-- Logo Start -->
+                            <div class="header-logo">
+                                <a asp-area="" asp-page="/Index">
+                                    <img src="~/assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                                    <img class="theme-dark" src="~/assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                                </a>
+                            </div><!-- Logo End -->
+                        </div>
+
+                        <div class="col order-12 order-lg-2 order-xl-2 d-none d-lg-block">
+                            <!-- Main Menu Start -->
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        <li class="active"><a asp-area="" asp-page="/Index">HOME</a></li>
+                                        <li>
+                                            <a asp-area="" asp-page="/Products">Shop</a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="#">PAGES</a>
+                                            <ul class="mega-menu three-column">
+                                                <li>
+                                                    <a href="#">Column One</a>
+                                                    <ul>
+                                                        <li><a asp-area="" asp-page="/AboutUs">About us</a></li>
+                                                        <li><a asp-area="" asp-page="/BestDeals">Best Deals</a></li>
+                                                        <li><a asp-area="" asp-page="/Cart">Cart</a></li>
+                                                        <li><a asp-area="" asp-page="/CheckOut">Checkout</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Column Two</a>
+                                                    <ul>
+                                                        <li><a asp-area="" asp-page="/Compare">Compare</a></li>
+                                                        <li><a asp-area="" asp-page="/Faq">Faq</a></li>
+                                                        <li><a asp-area="" asp-page="/Feature">Feature</a></li>
+                                                        <li><a asp-area="" asp-page="/Login">Login</a></li>
+                                                        <li><a asp-area="" asp-page="/Register">Register</a></li>
+                                                        <li><a asp-area="" asp-page="/Store">Store</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Column Three</a>
+                                                    <ul>
+                                                        <li><a asp-area="" asp-page="/TermsConditions">Terms & Conditions</a></li>
+                                                        <li><a asp-area="" asp-page="/TackOrder">Track Order</a></li>
+                                                        <li><a asp-area="" asp-page="/Wishlist">Wishlist</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a asp-area="" asp-page="/Blogs">BLOG</a>
+                                            <ul class="sub-menu">
+                                                <li><a asp-area="" asp-page="/Blogs">Blog 1 Column Left Sidebar</a></li>
+                                                <li><a asp-area="" asp-page="/BlogDetail">Single Blog Left Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a asp-area="" asp-page="/Contact">CONTACT</a></li>
+                                    </ul>
+                                </nav>
+                            </div><!-- Main Menu End -->
+                        </div>
+
+                        <div class="col order-2 order-lg-12 order-xl-12">
+                            <!-- Header Shop Links Start -->
+                            <div class="header-shop-links">
+
+                                <!-- Compare -->
+                                <a asp-area="" asp-page="/Compare" class="header-compare"><i class="ti-control-shuffle"></i></a>
+                                <!-- Wishlist -->
+                                <a asp-area="" asp-page="/Wishlist" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
+                                <!-- Cart -->
+                                <a asp-area="" asp-page="/Cart" class="header-cart"><i class="ti-shopping-cart"></i> <span class="number">3</span></a>
+
+                            </div><!-- Header Shop Links End -->
+                        </div>
+
+                        <!-- Mobile Menu -->
+                        <div class="mobile-menu order-12 d-block d-lg-none col"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Bottom End -->
+            <!-- Header Category Start -->
+            <div class="header-category-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+
+                            <!-- Header Category -->
+                            <div class="header-category">
+
+                                <!-- Category Toggle Wrap -->
+                                <div class="category-toggle-wrap d-block d-lg-none">
+                                    <!-- Category Toggle -->
+                                    <button class="category-toggle">Categories <i class="ti-menu"></i></button>
+                                </div>
+
+                                <!-- Category Menu -->
+                                <nav class="category-menu">
+                                    <ul>
+                                        <li><a asp-area="" asp-page="/Products">Tv & Audio System</a></li>
+                                        <li><a asp-area="" asp-page="/Products">Computer & Laptop</a></li>
+                                        <li><a asp-area="" asp-page="/Products">Phones & Tablets</a></li>
+                                        <li><a asp-area="" asp-page="/Products">Home Appliances</a></li>
+                                        <li><a asp-area="" asp-page="/Products">Kitchen appliances</a></li>
+                                        <li><a asp-area="" asp-page="/Products">Accessories</a></li>
+                                    </ul>
+                                </nav>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Category End -->
+
+        </div>
+        <!-- Header Section End -->
+
     </header>
-    
+
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
+            @if (IsSectionDefined("CartNotRequired"))
+            {
+                RenderSection("CartNotRequired");
+            }
+            else
+            {
+                <vc:shopping-cart></vc:shopping-cart>
+            }
             @this.RenderBody()
         </main>
     </div>
-    
-    <footer class="border-top footer text-muted">
+
+    <!-- Brands Section Start -->
+    <div class="brands-section section mb-90">
         <div class="container">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+
+                <!-- Brand Slider Start -->
+                <div class="brand-slider col">
+                    <div class="brand-item col"><img src="images/BrandImages/brand_bolivar.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_cohiba.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_cuaba.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_diplomaticos.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_ei_rey_del_mundo.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_fonseca.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_punch.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_quai_dorsay.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_quintero.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_ramon_allones.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_romeo_y_julieta.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_san_cristobal.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_trinidad.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_vegas_robaina.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/davidoff_1.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/limit-brand.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/Vegueros.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_partagas.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_montecristo.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_la_gloria_cubana.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_juan_lopez.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_jose_l_piedra_1.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_hoyo_de_monterrey.jpg" alt="Brands"></div>
+                    <div class="brand-item col"><img src="images/BrandImages/brand_h_upmann.jpg" alt="Brands"></div>
+                </div><!-- Brand Slider End -->
+
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- Brands Section End -->
+    <!-- Subscribe Section Start -->
+    <div class="subscribe-section section bg-gray pt-55 pb-55">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- Mailchimp Subscribe Content Start -->
+                <div class="col-lg-6 col-12 mb-15 mt-15">
+                    <div class="subscribe-content">
+                        <h2>SUBSCRIBE <span>OUR NEWSLETTER</span></h2>
+                        <h2><span>TO GET LATEST</span> PRODUCT UPDATE</h2>
+                    </div>
+                </div><!-- Mailchimp Subscribe Content End -->
+                <!-- Mailchimp Subscribe Form Start -->
+                <div class="col-lg-6 col-12 mb-15 mt-15">
+
+                    <form class="subscribe-form" action="#">
+                        <input type="email" autocomplete="off" placeholder="Enter your email here" />
+                        <button>subscribe</button>
+                    </form>
+                    <!-- mailchimp-alerts Start -->
+                    <div class="mailchimp-alerts text-centre">
+                        <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                        <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                        <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                    </div><!-- mailchimp-alerts end -->
+
+                </div><!-- Mailchimp Subscribe Form End -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscribe Section End -->
+    <!-- Footer Section Start -->
+    <div class="footer-section section bg-ivory">
+
+        <!-- Footer Top Section Start -->
+        <div class="footer-top-section section pt-90 pb-50">
+            <div class="container">
+
+                <!-- Footer Widget Start -->
+                <div class="row">
+                    <div class="col mb-90">
+                        <div class="footer-widget text-center">
+                            <div class="footer-logo">
+                                <img src="~/assets/images/logo.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                                <img class="theme-dark" src="~/assets/images/logo-light.png" alt="E&E - Electronics eCommerce Bootstrap4 HTML Template">
+                            </div>
+                            <p>Electronics product actual teachings of  he great explorer of the truth, the malder of human happiness. No one rejects</p>
+                        </div>
+                    </div>
+                </div><!-- Footer Widget End -->
+
+                <div class="row">
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-md-6 col-12 mb-40">
+                        <div class="footer-widget">
+
+                            <h4 class="widget-title">CONTACT INFO</h4>
+
+                            <p class="contact-info">
+                                <span>Address</span>
+                                You address will be here <br>
+                                Lorem Ipsum text
+                            </p>
+
+                            <p class="contact-info">
+                                <span>Phone</span>
+                                <a href="tel:01234567890">01234 567 890</a>
+                                <a href="tel:01234567891">01234 567 891</a>
+                            </p>
+
+                            <p class="contact-info">
+                                <span>Web</span>
+                                <a href="mailto:info@example.com">info@example.com</a>
+                                <a href="#">www.example.com</a>
+                            </p>
+
+                        </div>
+                    </div><!-- Footer Widget End -->
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-md-6 col-12 mb-40">
+                        <div class="footer-widget">
+
+                            <h4 class="widget-title">CUSTOMER CARE</h4>
+
+                            <ul class="link-widget">
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Features</a></li>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Cart</a></li>
+                                <li><a href="#">Checkout</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+
+                        </div>
+                    </div><!-- Footer Widget End -->
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-md-6 col-12 mb-40">
+                        <div class="footer-widget">
+
+                            <h4 class="widget-title">INFORMATION</h4>
+
+                            <ul class="link-widget">
+                                <li><a href="#">Track your order</a></li>
+                                <li><a href="#">Locate Store</a></li>
+                                <li><a href="#">Online Support</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Payment</a></li>
+                                <li><a href="#">Shipping & Returns</a></li>
+                                <li><a href="#">Gift coupon</a></li>
+                                <li><a href="#">Special coupon</a></li>
+                            </ul>
+
+                        </div>
+                    </div><!-- Footer Widget End -->
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-md-6 col-12 mb-40">
+                        <div class="footer-widget">
+
+                            <h4 class="widget-title">LATEST TWEET</h4>
+
+                            <div class="footer-tweet"></div>
+
+                        </div>
+                    </div><!-- Footer Widget End -->
+
+                </div>
+
+            </div>
+        </div><!-- Footer Bottom Section Start -->
+        <!-- Footer Bottom Section Start -->
+        <div class="footer-bottom-section section">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Footer Copyright -->
+                    <div class="col-lg-6 col-12">
+                        <div class="footer-copyright"><p> &copy; @DateTime.Now.Year - @GlobalConstants.SystemName </p></div>
+                    </div>
+
+                    <!-- Footer Payment Support -->
+                    <div class="col-lg-6 col-12">
+                        <div class="footer-payments-image"><img src="~/images/payment-support.png" alt="Payment Support Image"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div><!-- Footer Bottom Section Start -->
+
+    </div>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+    <!-- jQuery JS -->
+    <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Popper JS -->
+    <script src="~/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- Plugins JS -->
+    <script src="~/js/plugins.js"></script>
+    <!-- Main JS -->
+    <script src="~/js/main.js"></script>
+
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

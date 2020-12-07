@@ -37,8 +37,8 @@
                 }
             }
 
-            dbContext.Strenghts.AddRange(list);
-            dbContext.SaveChanges();
+            await dbContext.Strenghts.AddRangeAsync(list);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

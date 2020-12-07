@@ -166,8 +166,11 @@ namespace GiffyCards.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CustomerPhotoId")
+                    b.Property<int?>("CustomerPhotoId")
                         .HasColumnType("int");
+
+                    b.Property<string>("CustomerPhotoId1")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
@@ -220,7 +223,7 @@ namespace GiffyCards.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerPhotoId");
+                    b.HasIndex("CustomerPhotoId1");
 
                     b.HasIndex("IsDeleted");
 
@@ -341,16 +344,20 @@ namespace GiffyCards.Data.Migrations
 
             modelBuilder.Entity("GiffyCards.Data.Models.CustomerPhoto", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("CigarId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -361,10 +368,9 @@ namespace GiffyCards.Data.Migrations
                     b.Property<string>("PhotoText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhotoUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CigarId");
 
                     b.HasIndex("IsDeleted");
 
@@ -874,9 +880,7 @@ namespace GiffyCards.Data.Migrations
                 {
                     b.HasOne("GiffyCards.Data.Models.CustomerPhoto", "CustomerPhoto")
                         .WithMany("CustomerPhotos")
-                        .HasForeignKey("CustomerPhotoId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("CustomerPhotoId1");
                 });
 
             modelBuilder.Entity("GiffyCards.Data.Models.Cigar", b =>
@@ -912,6 +916,13 @@ namespace GiffyCards.Data.Migrations
                     b.HasOne("GiffyCards.Data.Models.Taste", "Taste")
                         .WithMany("Cigars")
                         .HasForeignKey("TasteId");
+                });
+
+            modelBuilder.Entity("GiffyCards.Data.Models.CustomerPhoto", b =>
+                {
+                    b.HasOne("GiffyCards.Data.Models.Cigar", "Cigar")
+                        .WithMany()
+                        .HasForeignKey("CigarId");
                 });
 
             modelBuilder.Entity("GiffyCards.Data.Models.Order", b =>

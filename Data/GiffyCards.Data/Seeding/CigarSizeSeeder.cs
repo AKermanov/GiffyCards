@@ -8,7 +8,7 @@
     using GiffyCards.Common;
     using GiffyCards.Data.Models;
 
-   public class CigarSizeSeeder : ISeeder
+    public class CigarSizeSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {
@@ -40,10 +40,8 @@
                 }
             }
 
-            dbContext.Sizes.AddRange(list);
-            dbContext.SaveChanges();
+            await dbContext.Sizes.AddRangeAsync(list);
+            await dbContext.SaveChangesAsync();
         }
-
-        
     }
 }
