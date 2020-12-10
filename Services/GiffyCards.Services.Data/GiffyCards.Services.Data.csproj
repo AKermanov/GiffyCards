@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\GiffyCards.Data.Common\GiffyCards.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\GiffyCards.Data.Models\GiffyCards.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\GiffyCards.Web.ViewModels\GiffyCards.Web.ViewModels.csproj" />
     <ProjectReference Include="..\GiffyCards.Services.Mapping\GiffyCards.Services.Mapping.csproj" />
   </ItemGroup>
 
