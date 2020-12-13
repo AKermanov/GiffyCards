@@ -49,6 +49,8 @@
 
         public decimal PricePerUnit { get; set; }
 
+        public string ImageUrl { get; set; }
+
         public virtual ICollection<OrderProducts> OrderProducts { get; set; }
     }
 }

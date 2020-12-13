@@ -56,7 +56,9 @@ namespace GiffyCards.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    BrandName = table.Column<string>(nullable: true)
+                    BrandName = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    BrandPictureUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -288,7 +290,8 @@ namespace GiffyCards.Data.Migrations
                     Bland = table.Column<string>(nullable: true),
                     DescriptionId = table.Column<int>(nullable: true),
                     ShapeId = table.Column<int>(nullable: true),
-                    PricePerUnit = table.Column<decimal>(nullable: false)
+                    PricePerUnit = table.Column<decimal>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

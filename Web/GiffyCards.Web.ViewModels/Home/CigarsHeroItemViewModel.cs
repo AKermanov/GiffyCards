@@ -7,7 +7,7 @@ namespace GiffyCards.Web.ViewModels.Home
 
         public string CigarName { get; set; }
 
-        public string PictureUrl { get; set; }
+        public string ImageUrl { get; set; }
 
         public string Discount { get; set; }
     }

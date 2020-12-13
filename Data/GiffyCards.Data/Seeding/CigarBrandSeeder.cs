@@ -28,6 +28,8 @@
                     BrandName = brandName,
                     CreatedOn = DateTime.UtcNow,
                     IsDeleted = false,
+                    Description = CigarSeedDataConstants.BrandDescription[brandName],
+                    BrandPictureUrl = CigarSeedDataConstants.BrandPictures[brandName],
                 };
 
                 var brand = list.FirstOrDefault(x => x.BrandName == currentBrand.BrandName);

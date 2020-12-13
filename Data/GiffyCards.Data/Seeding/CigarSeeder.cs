@@ -33,13 +33,14 @@
                     CigarName = CigarSeedDataConstants.CigarNameList[i],
                     Bland = "regular",
                     PricePerUnit = CigarSeedDataConstants.UnitPrice[i],
+                    ImageUrl = CigarSeedDataConstants.ImageUrl[i],
 
                 };
 
                 list.Add(cigar);
             }
 
-            await dbContext.AddAsync(list);
+            await dbContext.AddRangeAsync(list);
             await dbContext.SaveChangesAsync();
         }
 

@@ -79,7 +79,7 @@
                             <div class="main-menu">
                                 <nav>
                                     <ul>
-                                        <li class="active"><a asp-area="" asp-page="/Index">HOME</a></li>
+                                        <li class="active"><a asp-controller="Home" asp-action="Index" >HOME</a></li>
                                         <li>
                                             <a asp-area="" asp-page="/Products">Shop</a>
                                         </li>
@@ -169,7 +169,7 @@
                                 <!-- Category Menu -->
                                 <nav class="nav justify-content-center">
                                     <ul>
-                                        <li><a asp-area="" asp-page="/Products">BRANDS</a></li>
+                                        <li><a asp-controller="Brands" asp-action="ShowAllBrands">BRANDS</a></li>
                                         <li><a asp-area="" asp-page="/Products">SHOWROOM</a></li>
                                         <li><a asp-area="" asp-page="/Products">PROMOTIONS</a></li>
                                         <li><a asp-area="" asp-page="/Products">STRENGHT</a></li>

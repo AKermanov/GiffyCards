@@ -4,8 +4,8 @@
 
     using GiffyCards.Web.ViewModels.Home;
 
-    public interface IdisplayHomePageService
+    public interface ICigarService
     {
-        IEnumerable<CigarsHeroItemViewModel> GetAllStores();
+       IEnumerable<CigarsHeroItemViewModel> GetWeaklySpecial();
     }
 }

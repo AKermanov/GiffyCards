@@ -13,6 +13,10 @@
 
         public string BrandName { get; set; }
 
+        public string Description { get; set; }
+
+        public string BrandPictureUrl { get; set; }
+
         public virtual ICollection<Cigar> Cigars { get; set; }
     }
 }

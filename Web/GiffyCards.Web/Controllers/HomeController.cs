@@ -3,22 +3,26 @@
     using System.Diagnostics;
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels;
-
+    using GiffyCards.Web.ViewModels.Home;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
-        /*
-        private readonly IStoreService storeService;
+        private readonly ICigarService cigarService;
 
-        public HomeController(IStoreService storeService)
+        public HomeController(ICigarService cigarService)
         {
-            this.storeService = storeService;
+            this.cigarService = cigarService;
         }
-        */
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = new DisplayHomePageViewModel
+            {
+                Cigars = this.cigarService.GetWeaklySpecial(),
+            };
+
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

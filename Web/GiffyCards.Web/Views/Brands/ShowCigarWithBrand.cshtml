@@ -1,0 +1,36 @@
+﻿@model GiffyCards.Web.ViewModels.Brands.BrandDescription
+
+<main id="maincontent" class="page-main">
+    <a id="contentarea" tabindex="-1"></a>
+    <div class="page-title-wrapper">
+        <h1 class="page-title" id="page-title-heading" aria-labelledby="page-title-heading toolbar-amount">
+            <span class="base" data-ui-id="page-title-wrapper">@Model.BrandName</span>
+        </h1>
+    </div>
+    <div class="page messages">
+        <div data-placeholder="messages"></div>
+        <div data-bind="scope: 'messages'">
+            <!-- ko if: cookieMessages && cookieMessages.length > 0 --><!-- /ko -->
+            <!-- ko if: messages().messages && messages().messages.length > 0 --><!-- /ko -->
+        </div>
+
+    </div><div class="category-view">
+        <div id="pagebuilder-category-landing">
+
+        </div>
+        <div class="ec-row">
+            <div class="ec-col-sm-3 text-center">
+                <div class="category-image">
+                    <img src=@Model.ImageUrl alt="Bolivar" title=@Model.BrandName class="image">
+                </div>
+            </div>
+            <div class="ec-col-sm-9">
+                <div class="category-description">
+                    <p>
+                        <span>@Model.Description</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
