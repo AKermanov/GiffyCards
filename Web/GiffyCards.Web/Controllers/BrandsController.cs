@@ -29,5 +29,10 @@ namespace GiffyCards.Web.Controllers
 
             return this.View(output);
         }
+
+        public IActionResult CigarById(int id)
+        {
+            return this.View();
+        }
     }
 }

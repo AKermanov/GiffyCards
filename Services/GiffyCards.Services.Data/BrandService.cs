@@ -40,8 +40,8 @@
                     {
                         CiagrName = y.CigarName,
                         ImageUrl = y.ImageUrl,
-                        PriceForSingle = $"Single - US${y.PricePerUnit:f2}",
-                        PriceForBox = $"Box 25 - US${y.PricePerUnit * 23}:f2",
+                        PriceForSingle = $"Single - US$ {y.PricePerUnit:f2}",
+                        PriceForBox = $"Box 25 - US$ {y.PricePerUnit * 23:f2}",
                     }).ToList(),
                 })
                 .FirstOrDefault();
