@@ -9,12 +9,9 @@
         public Review()
         {
             this.Accessories = new HashSet<Accessorie>();
-            this.Cigars = new HashSet<Cigar>();
         }
 
         public int Score { get; set; }
-
-        public string Title { get; set; }
 
         public string ReviewText { get; set; }
 
@@ -22,8 +19,10 @@
 
         public string Email { get; set; }
 
-        public virtual ICollection<Accessorie> Accessories { get; set; }
+        public int CigarId { get; set; }
 
-        public virtual ICollection<Cigar> Cigars { get; set; }
+        public Cigar Cigar { get; set; }
+
+        public virtual ICollection<Accessorie> Accessories { get; set; }
     }
 }

@@ -9,6 +9,7 @@
         public Cigar()
         {
             this.OrderProducts = new HashSet<OrderProducts>();
+            this.Reviews = new HashSet<Review>();
         }
 
         public int? BrandId { get; set; }
@@ -24,10 +25,6 @@
         public int? TasteId { get; set; }
 
         public virtual Taste Taste { get; set; }
-
-        public int? ReviewId { get; set; }
-
-        public virtual Review Review { get; set; }
 
         public int? SizeId { get; set; }
 
@@ -52,5 +49,7 @@
         public string ImageUrl { get; set; }
 
         public virtual ICollection<OrderProducts> OrderProducts { get; set; }
+
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

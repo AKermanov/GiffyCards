@@ -1,4 +1,6 @@
-﻿<!-- Single Product Section Start -->
+﻿@model GiffyCards.Web.ViewModels.Cigar.SingleCigarViewModel
+
+<!-- Single Product Section Start -->
 <div class="product-section section mt-90 mb-90">
     <div class="container">
 
@@ -11,7 +13,7 @@
 
                     <div class="tab-content">
                         <div id="single-image-1" class="tab-pane fade show active big-image-slider">
-                            <div class="big-image"><img src="https://www.finestcubancigars.com/media/catalog/product/cache/3d77c04fa2722debac09f158aed31fb4/r/o/romeo-y-julieta-wide-churchills-gran-reserva-cosecha-2009_2.jpg" alt="Big Image"></div>
+                            <div class="big-image"><img src="@Model.ImageUrl" alt="Big Image"></div>
                         </div>
                     </div>
                 </div>
@@ -26,11 +28,9 @@
                     <div class="head-content">
 
                         <div class="category-title">
-                            <a href="#" class="cat"> odel.Product.Category Name</a>
-                            <h5 class="title">Model.Product.Name</h5>
+                            <a href="#" class="cat">@Model.Brand.BrandName</a>
+                            <h5 class="title">@Model.CigarName</h5>
                         </div>
-
-                        <h5 class="price">$Model.Product.UnitPrice</h5>
 
                     </div>
 
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="desc">
-                            <p>Model.Product.Description</p>
+                            <p>@Model.Description</p>
                         </div>
 
                         <span class="availability">Availability: <span>In Stock</span></span>
@@ -53,18 +53,13 @@
                         <div class="quantity-colors">
 
                             <div class="quantity">
-                                <h5>Quantity</h5>
+                                <h5>@Model.PriceForSingle</h5>
                                 <div class="pro-qty"><input type="text" value="1"></div>
                             </div>
 
-                            <div class="colors">
-                                <h5>Color</h5>
-                                <select class="nice-select">
-                                    <option>red</option>
-                                    <option>black</option>
-                                    <option>yellow</option>
-                                    <option>grey</option>
-                                </select>
+                            <div class="quantity">
+                                <h5>@Model.PriceForBox</h5>
+                                <div class="pro-qty"><input type="text" value="1"></div>
                             </div>
 
                         </div>
@@ -73,28 +68,27 @@
 
                             <form asp-page-handler="AddToCart" method="post" name="addToCartForm" id="add_cart_form">
                                 <a href="javascript:;" onclick="parentNode.submit();" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-                                <input type="hidden" <--! asp-for=""></--!> name="productId" />
+                                <input type="hidden"  asp-for="@Model.Id" name="productId" />
                             </form>
                             <div class="wishlist-compare">
                                 <form asp-page-handler="AddToCompare" method="post" name="AddToCompareForm" id="add_compare_form">
                                     <a href="javascript:;" onclick="parentNode.submit();" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <input type="hidden" <--! asp-for=""></--!> name="productId" />
+                                    <input type="hidden" asp-for="@Model.Id" name="productId" />
                                 </form>
                                 <form asp-page-handler="AddToWishlist" method="post" name="AddToWishlistForm" id="add_wishlist_form">
                                     <a href="javascript:;" onclick="parentNode.submit();" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                    <input type="hidden" <--! asp-for=""></--!> name="productId" />
+                                    <input type="hidden" asp-for="@Model.Id" name="productId" />
                                 </form>
                             </div>
 
                         </div>
-                                             
+
                         <div class="share">
 
                             <h5>Share: </h5>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
 
                         </div>
 
@@ -112,7 +106,7 @@
 
                 <ul class="single-product-tab-list nav">
                     <li><a href="#product-description" class="active" data-toggle="tab">description</a></li>
-                    <li><a href="#product-specifications" data-toggle="tab">specifications</a></li>
+                    <li><a href="#product-guarantee" data-toggle="tab">Product Guarantee</a></li>
                     <li><a href="#product-reviews" data-toggle="tab">reviews</a></li>
                 </ul>
 
@@ -121,28 +115,36 @@
 
                         <div class="row">
                             <div class="single-product-description-content col-lg-8 col-12">
-                                <h4>Introducing Flex 3310</h4>
-                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora in</p>
-                                <h4>Stylish Design</h4>
-                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
-                                <h4>Digital Camera, FM Radio & many more...</h4>
-                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
-                            </div>
-                            <div class="single-product-description-image col-lg-4 col-12">
-                                <img src="assets/images/single-product/description.png" alt="description">
+                                <h4>Stenght: @Model.Strenght.StrenghtType</h4>
+                                <h4>Shape: @Model.Shape.ShapeName</h4>
+                                <h4>Size:</h4>
+                                <h5>Ring Gauge - @Model.Size.RingRange</h5>
+                                <h5>Length - @Model.Size.Lenght</h5>
+                                <h4>Taste: @Model.Taste.TasteType</h4>
+                                <p></p>
                             </div>
                         </div>
-
+                                              
                     </div>
-                    <div class="tab-pane fade" id="product-specifications">
+                    <div class="tab-pane fade" id="product-guarantee">
                         <div class="single-product-specification">
                             <ul>
-                                <li>Full HD Camcorder</li>
-                                <li>Dual Video Recording</li>
-                                <li>X type battery operation</li>
-                                <li>Full HD Camcorder</li>
-                                <li>Dual Video Recording</li>
-                                <li>X type battery operation</li>
+
+                                <li>
+                                    We offer a 100% satisfaction guarantee on all our cigars or your
+                                    money back. Our guarantee applies to quality and condition of our
+                                    products. 
+                                </li>
+                                <li>
+                                    We also guarantee that all our cigars are 100% genuine Cuban
+                                    cigars.
+                                </li>
+                                <li>
+                                    We guarantee delivery to your door anywhere in the world. If you
+                                    do not receive your shipment, we will either replace it or refund
+                                    your money. We also guarantee receipt of your cigars and other
+                                    products in perfect condition.
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -211,37 +213,6 @@
                                     </div>
                                     <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
                                 </div>
-
-                                <div class="sin-rattings">
-                                    <div class="ratting-author">
-                                        <h3>Nirob Khan</h3>
-                                        <div class="ratting-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <span>(5)</span>
-                                        </div>
-                                    </div>
-                                    <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
-                                </div>
-
-                                <div class="sin-rattings">
-                                    <div class="ratting-author">
-                                        <h3>MD.ZENAUL ISLAM</h3>
-                                        <div class="ratting-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <span>(5)</span>
-                                        </div>
-                                    </div>
-                                    <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
-                                </div>
-
                             </div>
                             <div class="ratting-form-wrapper fix">
                                 <h3>Add your Comments</h3>

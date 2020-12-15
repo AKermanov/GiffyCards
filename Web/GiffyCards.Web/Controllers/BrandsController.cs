@@ -1,16 +1,18 @@
-﻿using GiffyCards.Services.Data;
-using GiffyCards.Web.ViewModels.Brands;
-using Microsoft.AspNetCore.Mvc;
-
-namespace GiffyCards.Web.Controllers
+﻿namespace GiffyCards.Web.Controllers
 {
+    using GiffyCards.Services.Data;
+    using GiffyCards.Web.ViewModels.Brands;
+    using Microsoft.AspNetCore.Mvc;
+
     public class BrandsController : Controller
     {
         private readonly IBrandService brandService;
+        private readonly ICigarService cigarService;
 
-        public BrandsController(IBrandService brandService)
+        public BrandsController(IBrandService brandService, ICigarService cigarService)
         {
             this.brandService = brandService;
+            this.cigarService = cigarService;
         }
 
         public IActionResult ShowAllBrands()
@@ -32,7 +34,9 @@ namespace GiffyCards.Web.Controllers
 
         public IActionResult CigarById(int id)
         {
-            return this.View();
+            var view = this.cigarService.GetSingleCigarById(id);
+
+            return this.View(view);
         }
     }
 }

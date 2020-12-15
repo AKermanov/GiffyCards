@@ -38,7 +38,8 @@
                     Cigars = x.Cigars.Where(j => j.BrandId == id)
                     .Select(y => new CigarWithBrandViewModel
                     {
-                        CiagrName = y.CigarName,
+                        Id = y.Id,
+                        CiagrName = y.CigarName.Replace('-', ' '),
                         ImageUrl = y.ImageUrl,
                         PriceForSingle = $"Single - US$ {y.PricePerUnit:f2}",
                         PriceForBox = $"Box 25 - US$ {y.PricePerUnit * 23:f2}",

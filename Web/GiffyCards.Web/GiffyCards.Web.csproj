@@ -194,6 +194,18 @@
     <Content Update="wwwroot\images\CIgarImages\Bolivar\RoyalCoronas\bolivar-royal-coronas_6_1_2_1_1_1_4_1_1_1_1_1_1_1_1_2_4_1_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\images\cigars-guarantee-1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\cigars-guarantee-2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\cigars-guarantee-3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\images\description.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\images\icons\car.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
