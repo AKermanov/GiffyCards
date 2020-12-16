@@ -4,14 +4,9 @@
 
     using GiffyCards.Data.Common.Models;
 
-    public class Review : BaseDeletableModel<int>
+    public class Review : BaseModel<int>
     {
-        public Review()
-        {
-            this.Accessories = new HashSet<Accessorie>();
-        }
-
-        public int Score { get; set; }
+        public byte Score { get; set; }
 
         public string ReviewText { get; set; }
 
@@ -19,10 +14,12 @@
 
         public string Email { get; set; }
 
-        public int CigarId { get; set; }
+        public int? CigarId { get; set; }
 
-        public Cigar Cigar { get; set; }
+        public virtual Cigar Cigar { get; set; }
 
-        public virtual ICollection<Accessorie> Accessories { get; set; }
+        public int? AccessorieId { get; set; }
+
+        public virtual Accessorie Accessorie { get; set; }
     }
 }

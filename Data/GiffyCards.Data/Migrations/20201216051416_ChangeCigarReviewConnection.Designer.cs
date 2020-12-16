@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GiffyCards.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201215072152_ChangeCigarReviewConnection")]
+    [Migration("20201216051416_ChangeCigarReviewConnection")]
     partial class ChangeCigarReviewConnection
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,9 +55,6 @@ namespace GiffyCards.Data.Migrations
                     b.Property<int?>("QuestionId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReviewId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DescriptionId");
@@ -65,8 +62,6 @@ namespace GiffyCards.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.HasIndex("QuestionId");
-
-                    b.HasIndex("ReviewId");
 
                     b.ToTable("Accessories");
                 });
@@ -578,20 +573,17 @@ namespace GiffyCards.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("AccessorieId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CigarId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -602,14 +594,14 @@ namespace GiffyCards.Data.Migrations
                     b.Property<string>("ReviewText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Score")
-                        .HasColumnType("int");
+                    b.Property<byte>("Score")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CigarId");
+                    b.HasIndex("AccessorieId");
 
-                    b.HasIndex("IsDeleted");
+                    b.HasIndex("CigarId");
 
                     b.ToTable("Reviews");
                 });
@@ -878,10 +870,6 @@ namespace GiffyCards.Data.Migrations
                     b.HasOne("GiffyCards.Data.Models.Question", "Question")
                         .WithMany("Accessories")
                         .HasForeignKey("QuestionId");
-
-                    b.HasOne("GiffyCards.Data.Models.Review", "Review")
-                        .WithMany("Accessories")
-                        .HasForeignKey("ReviewId");
                 });
 
             modelBuilder.Entity("GiffyCards.Data.Models.ApplicationUser", b =>
@@ -972,6 +960,10 @@ namespace GiffyCards.Data.Migrations
 
             modelBuilder.Entity("GiffyCards.Data.Models.Review", b =>
                 {
+                    b.HasOne("GiffyCards.Data.Models.Accessorie", "Accessorie")
+                        .WithMany("Reviews")
+                        .HasForeignKey("AccessorieId");
+
                     b.HasOne("GiffyCards.Data.Models.Cigar", "Cigar")
                         .WithMany("Reviews")
                         .HasForeignKey("CigarId")

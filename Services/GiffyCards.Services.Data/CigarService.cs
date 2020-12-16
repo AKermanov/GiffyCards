@@ -11,9 +11,9 @@
     public class CigarService : ICigarService
     {
         private readonly IDeletableEntityRepository<Cigar> cigarRepository;
-        private readonly IDeletableEntityRepository<Review> reviewRepository;
+        private readonly IRepository<Review> reviewRepository;
 
-        public CigarService(IDeletableEntityRepository<Cigar> cigarRepository, IDeletableEntityRepository<Review> reviewRepository)
+        public CigarService(IDeletableEntityRepository<Cigar> cigarRepository, IRepository<Review> reviewRepository)
         {
             this.cigarRepository = cigarRepository;
             this.reviewRepository = reviewRepository;
@@ -38,13 +38,13 @@
                      Question = x.Question,
                      Taste = x.Taste,
                      Reviews = x.Reviews
-                                .Where(r => r.CigarId == id)
-                                .Select(v => new ReviewsViewModel
+                     .Where(r => r.CigarId == id)
+                     .Select(v => new ReviewsViewModel
                      {
-                         Email = v.Email,
                          Score = v.Score,
                          Name = v.Name,
                          ReviewText = v.ReviewText,
+                         CigarId = v.CigarId,
                      }).ToList()
 ,
                  }).FirstOrDefault();

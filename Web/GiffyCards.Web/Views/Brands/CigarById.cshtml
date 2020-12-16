@@ -1,5 +1,4 @@
 ﻿@model GiffyCards.Web.ViewModels.Cigar.SingleCigarViewModel
-
 <!-- Single Product Section Start -->
 <div class="product-section section mt-90 mb-90">
     <div class="container">
@@ -68,7 +67,7 @@
 
                             <form asp-page-handler="AddToCart" method="post" name="addToCartForm" id="add_cart_form">
                                 <a href="javascript:;" onclick="parentNode.submit();" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-                                <input type="hidden"  asp-for="@Model.Id" name="productId" />
+                                <input type="hidden" asp-for="@Model.Id" name="productId" />
                             </form>
                             <div class="wishlist-compare">
                                 <form asp-page-handler="AddToCompare" method="post" name="AddToCompareForm" id="add_compare_form">
@@ -124,7 +123,7 @@
                                 <p></p>
                             </div>
                         </div>
-                                              
+
                     </div>
                     <div class="tab-pane fade" id="product-guarantee">
                         <div class="single-product-specification">
@@ -133,7 +132,7 @@
                                 <li>
                                     We offer a 100% satisfaction guarantee on all our cigars or your
                                     money back. Our guarantee applies to quality and condition of our
-                                    products. 
+                                    products.
                                 </li>
                                 <li>
                                     We also guarantee that all our cigars are 100% genuine Cuban
@@ -150,70 +149,27 @@
                     </div>
                     <div class="tab-pane fade" id="product-reviews">
 
-                        <div class="product-ratting-wrap">
-                            <div class="pro-avg-ratting">
-                                <h4>4.5 <span>(Overall)</span></h4>
-                                <span>Based on 9 Comments</span>
-                            </div>
-                            <div class="ratting-list">
-                                <div class="sin-list float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span>(5)</span>
-                                </div>
-                                <div class="sin-list float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>(3)</span>
-                                </div>
-                                <div class="sin-list float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>(1)</span>
-                                </div>
-                                <div class="sin-list float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>(0)</span>
-                                </div>
-                                <div class="sin-list float-left">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>(0)</span>
-                                </div>
-                            </div>
+                      <div class="product-ratting-wrap">
+                        @foreach (var review in Model.Reviews)
+                         {
                             <div class="rattings-wrapper">
 
                                 <div class="sin-rattings">
                                     <div class="ratting-author">
-                                        <h3>Cristopher Lee</h3>
+                                        <h3>@review.Name</h3>
                                         <div class="ratting-star">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
-                                            <span>(5)</span>
+                                            <span>@review.Score</span>
                                         </div>
                                     </div>
-                                    <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                                    <p>@review.ReviewText</p>
                                 </div>
                             </div>
+                         }
                             <div class="ratting-form-wrapper fix">
                                 <h3>Add your Comments</h3>
                                 <form action="#">

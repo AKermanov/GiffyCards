@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GiffyCards.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class ChangeCigarReviewConnection : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -99,27 +99,6 @@ namespace GiffyCards.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Questions", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reviews",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    ModifiedOn = table.Column<DateTime>(nullable: true),
-                    IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true),
-                    Score = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(nullable: true),
-                    ReviewText = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reviews", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -242,7 +221,6 @@ namespace GiffyCards.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     AccessorieName = table.Column<string>(nullable: true),
                     DescriptionId = table.Column<int>(nullable: true),
-                    ReviewId = table.Column<int>(nullable: true),
                     QuestionId = table.Column<int>(nullable: true),
                     PricePerUnit = table.Column<decimal>(nullable: true),
                     PictureUrl = table.Column<string>(nullable: true)
@@ -262,12 +240,6 @@ namespace GiffyCards.Data.Migrations
                         principalTable: "Questions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Accessories_Reviews_ReviewId",
-                        column: x => x.ReviewId,
-                        principalTable: "Reviews",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -284,7 +256,6 @@ namespace GiffyCards.Data.Migrations
                     CigarName = table.Column<string>(nullable: true),
                     StrenghtId = table.Column<int>(nullable: true),
                     TasteId = table.Column<int>(nullable: true),
-                    ReviewId = table.Column<int>(nullable: true),
                     SizeId = table.Column<int>(nullable: true),
                     QuestionId = table.Column<int>(nullable: true),
                     Bland = table.Column<string>(nullable: true),
@@ -312,12 +283,6 @@ namespace GiffyCards.Data.Migrations
                         name: "FK_Cigars_Questions_QuestionId",
                         column: x => x.QuestionId,
                         principalTable: "Questions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Cigars_Reviews_ReviewId",
-                        column: x => x.ReviewId,
-                        principalTable: "Reviews",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -394,6 +359,38 @@ namespace GiffyCards.Data.Migrations
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ProductTypes_Cigars_CigarId",
+                        column: x => x.CigarId,
+                        principalTable: "Cigars",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reviews",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: true),
+                    Score = table.Column<byte>(nullable: false),
+                    ReviewText = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    CigarId = table.Column<int>(nullable: false),
+                    AccessorieId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reviews", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Reviews_Accessories_AccessorieId",
+                        column: x => x.AccessorieId,
+                        principalTable: "Accessories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Reviews_Cigars_CigarId",
                         column: x => x.CigarId,
                         principalTable: "Cigars",
                         principalColumn: "Id",
@@ -614,11 +611,6 @@ namespace GiffyCards.Data.Migrations
                 column: "QuestionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Accessories_ReviewId",
-                table: "Accessories",
-                column: "ReviewId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Addresses_IsDeleted",
                 table: "Addresses",
                 column: "IsDeleted");
@@ -701,11 +693,6 @@ namespace GiffyCards.Data.Migrations
                 name: "IX_Cigars_QuestionId",
                 table: "Cigars",
                 column: "QuestionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cigars_ReviewId",
-                table: "Cigars",
-                column: "ReviewId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cigars_ShapeId",
@@ -803,9 +790,14 @@ namespace GiffyCards.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_IsDeleted",
+                name: "IX_Reviews_AccessorieId",
                 table: "Reviews",
-                column: "IsDeleted");
+                column: "AccessorieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_CigarId",
+                table: "Reviews",
+                column: "CigarId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Settings_IsDeleted",
@@ -854,6 +846,9 @@ namespace GiffyCards.Data.Migrations
                 name: "OrderProducts");
 
             migrationBuilder.DropTable(
+                name: "Reviews");
+
+            migrationBuilder.DropTable(
                 name: "Settings");
 
             migrationBuilder.DropTable(
@@ -888,9 +883,6 @@ namespace GiffyCards.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Questions");
-
-            migrationBuilder.DropTable(
-                name: "Reviews");
 
             migrationBuilder.DropTable(
                 name: "Shapes");
