@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GiffyCards.Data.Migrations
 {
-    public partial class ChangeCigarReviewConnection : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -377,7 +377,7 @@ namespace GiffyCards.Data.Migrations
                     ReviewText = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    CigarId = table.Column<int>(nullable: false),
+                    CigarId = table.Column<int>(nullable: true),
                     AccessorieId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

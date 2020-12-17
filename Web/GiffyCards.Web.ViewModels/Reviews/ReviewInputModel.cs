@@ -2,14 +2,14 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-   public class ReviewInputModel
+    public class ReviewInputModel
     {
         [Range(1, 5)]
         public byte Score { get; set; }
 
         [Required]
         [StringLength(1000)]
-        public string ReviewText { get; set; }
+        public string Review { get; set; }
 
         [Required]
         [StringLength(50)]

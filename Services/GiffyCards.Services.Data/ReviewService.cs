@@ -1,5 +1,6 @@
 ﻿namespace GiffyCards.Services.Data
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -26,14 +27,14 @@
                 {
                     CigarId = reviewsViewModel.CigarId,
                     Name = reviewsViewModel.Name,
-                    ReviewText = reviewsViewModel.ReviewText,
-
+                    ReviewText = reviewsViewModel.Review,
+                    Email = reviewsViewModel.Email,
+                    Score = 3,
+                    CreatedOn = DateTime.UtcNow,
                 };
 
                 await this.reviewRepository.AddAsync(review);
             }
-
-            review.Score = reviewsViewModel.Score;
 
             await this.reviewRepository.SaveChangesAsync();
         }

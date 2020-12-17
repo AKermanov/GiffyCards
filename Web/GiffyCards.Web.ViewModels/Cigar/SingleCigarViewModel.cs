@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using GiffyCards.Data.Models;
+    using GiffyCards.Web.ViewModels.Reviews;
 
     public class SingleCigarViewModel
     {
@@ -33,5 +34,6 @@
         public string ImageUrl { get; set; }
 
         public IEnumerable<ReviewsViewModel> Reviews { get; set; }
+
     }
 }

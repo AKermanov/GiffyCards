@@ -1,7 +1,5 @@
 ﻿namespace GiffyCards.Data.Models
 {
-    using System.Collections.Generic;
-
     using GiffyCards.Data.Common.Models;
 
     public class Review : BaseModel<int>

@@ -1,0 +1,42 @@
+﻿@model GiffyCards.Web.ViewModels.Reviews.ReviewInputModel
+@{
+    ViewBag.Title = "AddReview";
+    var ID = ViewBag.ID;
+
+}
+<h1>Add Review</h1>
+
+<div class="ratting-form-wrapper fix">
+    <form method="post">
+        <div class="ratting-form row">
+            <div class="col-12 mb-15">
+                <h5>Rating:</h5>
+                <div class="ratting-star fix">
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 mb-15">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+
+            </div>
+            <div class="col-md-6 col-12 mb-15">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+
+            </div>
+            <div class="col-12 mb-15">
+                <label asp-for="Review"></label>
+                <textarea asp-for="Review" class="form-control" rows="5"></textarea>
+            </div>
+            <input type="text" hidden id="id" name="cigarId" value="@Context.Request.RouteValues["id"]" />
+            <div class="col-12">
+                <input value="add review" type="submit" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>

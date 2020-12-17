@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GiffyCards.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201216051416_ChangeCigarReviewConnection")]
-    partial class ChangeCigarReviewConnection
+    [Migration("20201217072957_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -576,7 +576,7 @@ namespace GiffyCards.Data.Migrations
                     b.Property<int?>("AccessorieId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CigarId")
+                    b.Property<int?>("CigarId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
@@ -966,9 +966,7 @@ namespace GiffyCards.Data.Migrations
 
                     b.HasOne("GiffyCards.Data.Models.Cigar", "Cigar")
                         .WithMany("Reviews")
-                        .HasForeignKey("CigarId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("CigarId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

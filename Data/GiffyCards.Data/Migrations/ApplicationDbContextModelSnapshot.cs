@@ -574,7 +574,7 @@ namespace GiffyCards.Data.Migrations
                     b.Property<int?>("AccessorieId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CigarId")
+                    b.Property<int?>("CigarId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
@@ -964,9 +964,7 @@ namespace GiffyCards.Data.Migrations
 
                     b.HasOne("GiffyCards.Data.Models.Cigar", "Cigar")
                         .WithMany("Reviews")
-                        .HasForeignKey("CigarId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("CigarId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
