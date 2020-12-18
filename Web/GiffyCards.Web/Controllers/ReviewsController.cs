@@ -21,10 +21,9 @@
         }
 
         [HttpPost]
-        public IActionResult AddReview(ReviewInputModel reviewInputModel)
+        public async Task<ActionResult> AddReview(ReviewInputModel reviewInputModel)
         {
-
-            this.reviewService.SetRevewAsync(reviewInputModel);
+            await this.reviewService.SetRevewAsync(reviewInputModel);
 
             return this.Redirect($"/Brands/CigarById/{reviewInputModel.CigarId}");
         }

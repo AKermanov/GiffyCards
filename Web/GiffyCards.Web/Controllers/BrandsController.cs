@@ -45,9 +45,9 @@
         }
 
         [HttpPost]
-        public async Task<ActionResult> CigarById(ReviewInputModel reviewInputModel)
+        public IActionResult CigarById(ReviewInputModel reviewInputModel)
         {
-            await this.reviewService.SetRevewAsync(reviewInputModel);
+            this.reviewService.SetRevewAsync(reviewInputModel);
 
             return this.View();
         }

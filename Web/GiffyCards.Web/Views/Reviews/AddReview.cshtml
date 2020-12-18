@@ -11,27 +11,25 @@
         <div class="ratting-form row">
             <div class="col-12 mb-15">
                 <h5>Rating:</h5>
-                <div class="ratting-star fix">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
+                <div class="col-md-1 col-12 mb-15">
+                    <input asp-for="Score" class="form-control" />
+                    <span asp-validation-for="Score" class="text-danger"></span>
                 </div>
             </div>
-            <div class="col-md-6 col-12 mb-15">
+            <div class="col-md-3 col-12 mb-15">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" class="form-control" />
-
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
-            <div class="col-md-6 col-12 mb-15">
+            <div class="col-md-4 col-12 mb-15">
                 <label asp-for="Email"></label>
                 <input asp-for="Email" class="form-control" />
-
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="col-12 mb-15">
                 <label asp-for="Review"></label>
                 <textarea asp-for="Review" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Review" class="text-danger"></span>
             </div>
             <input type="text" hidden id="id" name="cigarId" value="@Context.Request.RouteValues["id"]" />
             <div class="col-12">

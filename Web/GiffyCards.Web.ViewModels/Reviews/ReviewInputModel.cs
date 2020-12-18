@@ -8,11 +8,13 @@
         public byte Score { get; set; }
 
         [Required]
-        [StringLength(1000)]
+        [MinLength(5)]
+        [MaxLength(500)]
         public string Review { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [MinLength(2)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         [Required]

@@ -29,14 +29,22 @@
                     Name = reviewsViewModel.Name,
                     ReviewText = reviewsViewModel.Review,
                     Email = reviewsViewModel.Email,
-                    Score = 3,
+                    Score = reviewsViewModel.Score,
                     CreatedOn = DateTime.UtcNow,
                 };
 
-                await this.reviewRepository.AddAsync(review);
             }
+            try
+            {
+                await this.reviewRepository.AddAsync(review);
+                await this.reviewRepository.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
 
-            await this.reviewRepository.SaveChangesAsync();
+                Console.WriteLine(ex);
+            }
+          
         }
     }
 }
