@@ -22,7 +22,7 @@
                 Id = x.Id,
                 BrandName = x.BrandName.Replace('-', ' '),
                 ImageUrl = x.BrandPictureUrl,
-            });
+            }).ToList();
         }
 
         public BrandDescription GetBrand(int id)

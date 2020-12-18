@@ -67,6 +67,7 @@
             services.AddTransient<ICigarService, CigarService>();
             services.AddTransient<IBrandService, BrandService>();
             services.AddTransient<IReviewService, ReviewService>();
+            services.AddTransient<ITastesService, TastesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

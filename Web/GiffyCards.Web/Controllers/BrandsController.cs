@@ -1,11 +1,12 @@
 ﻿namespace GiffyCards.Web.Controllers
 {
+    using System.Threading.Tasks;
+
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels.Brands;
     using GiffyCards.Web.ViewModels.Cigar;
     using GiffyCards.Web.ViewModels.Reviews;
     using Microsoft.AspNetCore.Mvc;
-    using System.Threading.Tasks;
 
     public class BrandsController : Controller
     {

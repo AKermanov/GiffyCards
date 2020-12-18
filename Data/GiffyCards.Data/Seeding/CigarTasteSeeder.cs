@@ -23,9 +23,12 @@
             for (int i = 0; i < CigarSeedDataConstants.TesteList.Length; i++)
             {
 
+                var tasteType = CigarSeedDataConstants.TesteList[i].Trim();
+
                 var currentTaste = new Taste
                 {
-                    TasteType = CigarSeedDataConstants.TesteList[i],
+                    TasteType = tasteType,
+                    ImageUrl = CigarSeedDataConstants.TastePictures[tasteType],
                     CreatedOn = DateTime.UtcNow,
                     IsDeleted = false,
                 };

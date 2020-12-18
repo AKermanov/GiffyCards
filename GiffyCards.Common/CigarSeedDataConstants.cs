@@ -45,10 +45,10 @@ namespace GiffyCards.Common
         };
 
         public static readonly string[] TesteList = { "Earthy", "Earthy", "Spicy", "Spicy", "Woody", "Woody", "Woody", "Vegetal", "Woody", "Spicy", "Spicy", "Spicy", "Vegetal",
-            "Full", "Spicy", "Spicy", "Spicy", "Woody", "Woody", "Woody", "Fruity", "Spicy", "Spicy", "Fruity", "Spicy", "Woody","Woody", "Spicy", "Fruity","Fruity",
+            "Spicy", "Spicy", "Spicy", "Woody", "Woody", "Woody", "Fruity", "Spicy", "Spicy", "Fruity", "Spicy", "Woody","Woody", "Spicy", "Fruity","Fruity",
             "Spicy","Spicy", "Woody","Woody", "Vegetal", "Spicy", "Woody", "Vegetal","Vegetal","Vegetal", "Spicy", "Woody", "Earthy","Vegetal", "Woody", "Woody",
             "Woody", "Woody", "Spicy","Spicy","Woody", "Leathery", "Earthy","Woody","Woody", "Leathery","Earthy", "Earthy", "Earthy", "Spicy","Spicy","Spicy","Woody",
-            "Woody", "Spicy", "Vegetal","Leathery","Leathery","Earthy","Earthy", "Woody","Fruity","Earthy","Spicy","Vegetal","Vegetal","Spicy","Woody","Earthy",};
+            "Woody", "Spicy", "Vegetal", "Leathery","Leathery","Leathery","Earthy","Earthy", "Woody","Fruity","Earthy","Spicy","Vegetal","Vegetal","Spicy","Woody","Earthy",};
 
         public static readonly string[] StrenghtList = { "Full", "Medium to Full", "Medium to Full", "Medium to Full", "Medium to Full", "Medium to Full", "Full", "Medium to Full", "Medium to Full",
             "Medium to Full", "Medium to Full", "Medium", "Medium to Full", "Medium", "Medium to Full", "Medium", "Full", "Medium", "Medium to Full", "Light",
@@ -299,6 +299,16 @@ Punch has two Edición Limitada production cigars. One was released in 2013, and
                 { "VEGUEROS", "https://upload.wikimedia.org/wikipedia/en/a/a6/Vegueros.jpg" },
                 { "CUABA", "https://upload.wikimedia.org/wikipedia/en/3/39/Cuabalogo.JPG" },
                 { "JUAN-LOPEZ", "https://www.cigar-wiki.com/images/0/02/Juanlopez_logo.jpg" },
+            };
+
+        public static readonly Dictionary<string, string> TastePictures = new Dictionary<string, string>
+            {
+                { "Leathery", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_leathery.png" },
+                { "Fruity", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_fruity.png" },
+                { "Vegetal", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_vegetal.png" },
+                { "Woody", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_woody.png" },
+                { "Spicy", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_spicy.png" },
+                { "Earthy", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_earthy.png" },
             };
     }
 }

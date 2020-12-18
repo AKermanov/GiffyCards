@@ -1,0 +1,15 @@
+﻿@model GiffyCards.Web.ViewModels.TastesLists
+<h1>Tasts All Page</h1>
+
+<hr />
+<div class="row">
+    @foreach (var tasts in this.Model.TastsLists)
+    {
+        <div class="media col-md-4">
+            <img src="@tasts.ImageUrl" width="100" class="mr-3 img-responsive">
+            <div class="media-body">
+                <h5 class="mt-0"><a asp-action="ShowCigarWithBrand" asp-route-id="@tasts.Id">@tasts.TasteType</a></h5>
+            </div>
+        </div>
+    }
+</div>
