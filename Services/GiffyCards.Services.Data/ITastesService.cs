@@ -7,5 +7,7 @@
     public interface ITastesService
     {
         IEnumerable<TastesViewModel> AllTastes();
+
+        TastesViewModel CurrentTaste(int id);
     }
 }

@@ -21,9 +21,21 @@
             return this.tasteRepository.AllAsNoTracking().Select(x => new TastesViewModel
             {
                 Id = x.Id,
-                TasteType = x.TasteType,
+                TasteType = x.TasteType.ToUpper(),
                 ImageUrl = x.ImageUrl,
             }).ToList();
+        }
+
+        public TastesViewModel CurrentTaste(int id)
+        {
+           return this.tasteRepository.AllAsNoTracking().Select
+                (x => new TastesViewModel
+                {
+                    Id = x.Id,
+                    ImageUrl = x.ImageUrl,
+                    TasteType = x.TasteType,
+                })
+                .FirstOrDefault(x => x.Id == id);
         }
     }
 }

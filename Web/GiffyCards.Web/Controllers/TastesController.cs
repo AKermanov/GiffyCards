@@ -7,10 +7,12 @@
     public class TastesController : Controller
     {
         private readonly ITastesService tastesService;
+        private readonly ICigarService cigarService;
 
-        public TastesController(ITastesService tastesService)
+        public TastesController(ITastesService tastesService, ICigarService cigarService)
         {
             this.tastesService = tastesService;
+            this.cigarService = cigarService;
         }
 
         public IActionResult AllTastes()
@@ -21,6 +23,22 @@
             };
 
             return this.View(viewModel);
+        }
+
+        public IActionResult ShowCigarWithTaste(int id)
+        {
+            var viewOutput = new TastesLists
+            {
+                Cigars = this.cigarService.CigaraWithTaste(id),
+                CurrentTaste = this.tastesService.CurrentTaste(id),
+            };
+
+            return this.View(viewOutput);
+        }
+
+        public IActionResult CigarById(int id)
+        {
+            return this.Redirect($"/Brands/CigarById/{id}");
         }
     }
 }

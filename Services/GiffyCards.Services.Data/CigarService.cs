@@ -5,6 +5,7 @@
     using System.Linq;
     using GiffyCards.Data.Common.Repositories;
     using GiffyCards.Data.Models;
+    using GiffyCards.Web.ViewModels.Brands;
     using GiffyCards.Web.ViewModels.Cigar;
     using GiffyCards.Web.ViewModels.Home;
 
@@ -17,6 +18,19 @@
         {
             this.cigarRepository = cigarRepository;
             this.reviewRepository = reviewRepository;
+        }
+
+        public IEnumerable<CigarWithBrandViewModel> CigaraWithTaste(int id)
+        {
+            return this.cigarRepository.AllAsNoTracking().Where(x => x.TasteId == id)
+                 .Select(x => new CigarWithBrandViewModel
+                 {
+                     Id = x.Id,
+                     CiagrName = x.CigarName.Replace('-', ' '),
+                     ImageUrl = x.ImageUrl,
+                     PriceForSingle = $"Single - US$ {x.PricePerUnit:f2}",
+                     PriceForBox = $"Box 25 - US$ {x.PricePerUnit * 23:f2}",
+                 }).ToList();
         }
 
         public SingleCigarViewModel GetSingleCigarById(int id)

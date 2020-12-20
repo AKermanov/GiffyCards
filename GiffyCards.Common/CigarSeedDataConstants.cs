@@ -35,7 +35,7 @@ namespace GiffyCards.Common
             "52","52","52","49",};
 
         public static readonly string[] ShapeList = { "Corona", "Petit Corona", "Robusto", "Double Robusto", "Petit Robusto", "Robusto Extra", "Double Robusto", "Churchill", "Robusto Extra",
-            "Petit Robusto" , "Robusto", " Petit Robusto", "Robusto Extra",  "Robusto Extra", "Petit Robusto", "Robusto", "Petit Robusto", "Double Perfecto", "Corona"
+            "Petit Robusto" , "Robusto", "Petit Robusto", "Robusto Extra",  "Robusto Extra", "Petit Robusto", "Robusto", "Petit Robusto", "Double Perfecto", "Corona"
            , "Robusto", "Small Panetela", "Lonsdale", "Double Corona", "Robusto", "Robusto Extra", "Petit Robusto", "Robusto Extra", "Petit Robusto", "Robusto", "Petit Pyramid",
             "Pyramid", "Corona Gorda", "Double Robusto", "Petit Robusto", "Churchill", "Pyramid", "Double Robusto", "Corona", "Long Corona", "Robusto", "Torpedo",
             "Corona", "Petit Corona", "Petit Corona", "Robusto Extra", "Short Panetela","Robusto", "Robusto", "Double Robusto", "Pyramid", "Robusto", "Petit Corona", "Perfecto",

@@ -53,6 +53,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Tastes\CigarByTaste.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Tastes\ShowCigarWithTaste.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\images\AccessoriesImages\allass.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
