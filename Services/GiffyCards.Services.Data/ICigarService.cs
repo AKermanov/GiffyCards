@@ -1,6 +1,7 @@
 ﻿namespace GiffyCards.Services.Data
 {
     using System.Collections.Generic;
+
     using GiffyCards.Web.ViewModels.Brands;
     using GiffyCards.Web.ViewModels.Cigar;
     using GiffyCards.Web.ViewModels.Home;
@@ -13,5 +14,6 @@
 
         IEnumerable<CigarWithBrandViewModel> CigaraWithTaste(int id);
 
+        IEnumerable<CigarWithBrandViewModel> CiagrWithSpesificShape(int brandId);
     }
 }

@@ -1,17 +1,43 @@
 ﻿namespace GiffyCards.Web.Controllers
 {
+    using GiffyCards.Services.Data;
+    using GiffyCards.Web.ViewModels;
     using Microsoft.AspNetCore.Mvc;
 
     public class SizesController : Controller
     {
-        public IActionResult All()
+        private readonly ISizeService sizeService;
+        private readonly ICigarService cigarService;
+
+        public SizesController(ISizeService sizeService, ICigarService cigarService)
         {
-            return this.View();
+            this.sizeService = sizeService;
+            this.cigarService = cigarService;
         }
 
-        public IActionResult GetBySize(string shape)
+        public IActionResult All()
         {
-            return this.View();
+            var view = new SizesAllViewModel
+            {
+                ShapeAndSizeViewModel = this.sizeService.GetAllShapesAndSizes(),
+            };
+
+            return this.View(view);
+        }
+
+        public IActionResult GetBySize(int id)
+        {
+            var view = new SizesAllViewModel
+            {
+                CiagrWithSpesificShape = this.cigarService.CiagrWithSpesificShape(id),
+            };
+
+            return this.View(view);
+        }
+
+        public IActionResult CigarById(int id)
+        {
+            return this.Redirect($"/Brands/CigarById/{id}");
         }
     }
 }

@@ -20,6 +20,20 @@
             this.reviewRepository = reviewRepository;
         }
 
+        public IEnumerable<CigarWithBrandViewModel> CiagrWithSpesificShape(int brandId)
+        {
+            //this sort does not work!!!
+            return this.cigarRepository.AllAsNoTracking().Where(b => b.BrandId == brandId)
+                .Select(x => new CigarWithBrandViewModel
+                {
+                    CiagrName = x.CigarName,
+                    Id = x.Id,
+                    ImageUrl = x.ImageUrl,
+                    PriceForSingle = $"Single - US$ {x.PricePerUnit:f2}",
+                    PriceForBox = $"Box 25 - US$ {x.PricePerUnit * 23:f2}",
+                }).ToList();
+        }
+
         public IEnumerable<CigarWithBrandViewModel> CigaraWithTaste(int id)
         {
             return this.cigarRepository.AllAsNoTracking().Where(x => x.TasteId == id)

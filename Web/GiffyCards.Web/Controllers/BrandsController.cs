@@ -4,7 +4,6 @@
 
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels.Brands;
-    using GiffyCards.Web.ViewModels.Cigar;
     using GiffyCards.Web.ViewModels.Reviews;
     using Microsoft.AspNetCore.Mvc;
 
