@@ -310,5 +310,14 @@ Punch has two Edición Limitada production cigars. One was released in 2013, and
                 { "Spicy", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_spicy.png" },
                 { "Earthy", "https://www.finestcubancigars.com/media//catalog/category/menu_taste_earthy.png" },
             };
+
+        public static readonly Dictionary<string, string> StrengthPictures = new Dictionary<string, string>
+            {
+                { "Light to Medium", "https://www.finestcubancigars.com/media//catalog/category/menu_strength_l-m.png" },
+                { "Light", "https://www.finestcubancigars.com/media//catalog/category/menu_strength_l.png" },
+                { "Medium", "https://www.finestcubancigars.com/media//catalog/category/menu_strength_m.png" },
+                { "Medium to Full", "https://www.finestcubancigars.com/media//catalog/category/menu_strength_m-f.png" },
+                { "Full", "https://www.finestcubancigars.com/media//catalog/category/menu_strength_f.png" },
+            };
     }
 }

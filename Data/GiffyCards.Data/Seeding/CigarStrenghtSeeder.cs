@@ -21,10 +21,11 @@
 
             for (int i = 0; i < CigarSeedDataConstants.StrenghtList.Length; i++)
             {
-
+                var curr = CigarSeedDataConstants.StrenghtList[i];
                 var currentStrenght = new Strenght
                 {
-                    StrenghtType = CigarSeedDataConstants.StrenghtList[i],
+                    StrenghtType = curr,
+                    PictureUrl = CigarSeedDataConstants.StrengthPictures[curr],
                     CreatedOn = DateTime.UtcNow,
                     IsDeleted = false,
                 };

@@ -69,6 +69,7 @@
             services.AddTransient<IReviewService, ReviewService>();
             services.AddTransient<ITastesService, TastesService>();
             services.AddTransient<ISizeService, SizeService>();
+            services.AddTransient<IStrenghtService, StrenghtService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

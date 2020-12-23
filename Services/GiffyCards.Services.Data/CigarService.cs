@@ -20,10 +20,9 @@
             this.reviewRepository = reviewRepository;
         }
 
-        public IEnumerable<CigarWithBrandViewModel> CiagrWithSpesificShape(int brandId)
+        public IEnumerable<CigarWithBrandViewModel> CiagrWithSpesificShape(int shapeId)
         {
-            //this sort does not work!!!
-            return this.cigarRepository.AllAsNoTracking().Where(b => b.BrandId == brandId)
+            return this.cigarRepository.AllAsNoTracking().Where(s => s.ShapeId == shapeId)
                 .Select(x => new CigarWithBrandViewModel
                 {
                     CiagrName = x.CigarName,
@@ -37,6 +36,19 @@
         public IEnumerable<CigarWithBrandViewModel> CigaraWithTaste(int id)
         {
             return this.cigarRepository.AllAsNoTracking().Where(x => x.TasteId == id)
+                 .Select(x => new CigarWithBrandViewModel
+                 {
+                     Id = x.Id,
+                     CiagrName = x.CigarName.Replace('-', ' '),
+                     ImageUrl = x.ImageUrl,
+                     PriceForSingle = $"Single - US$ {x.PricePerUnit:f2}",
+                     PriceForBox = $"Box 25 - US$ {x.PricePerUnit * 23:f2}",
+                 }).ToList();
+        }
+
+        public IEnumerable<CigarWithBrandViewModel> CigaraWithStrenght(int id)
+        {
+            return this.cigarRepository.AllAsNoTracking().Where(x => x.StrenghtId == id)
                  .Select(x => new CigarWithBrandViewModel
                  {
                      Id = x.Id,
@@ -89,6 +101,18 @@
                     Discount = Math.Round((x.PricePerUnit / 2) + 10).ToString("G29") + '%',
                     ImageUrl = x.ImageUrl,
                 }).ToList();
+        }
+
+        public IEnumerable<CigarWithBrandViewModel> AllCigars()
+        {
+            return this.cigarRepository.AllAsNoTracking().Select(x => new CigarWithBrandViewModel
+            {
+                Id = x.Id,
+                CiagrName = x.CigarName.Replace('-', ' '),
+                ImageUrl = x.ImageUrl,
+                PriceForSingle = $"Single - US$ {x.PricePerUnit:f2}",
+                PriceForBox = $"Box 25 - US$ {x.PricePerUnit * 23:f2}",
+            }).ToList();
         }
     }
 }

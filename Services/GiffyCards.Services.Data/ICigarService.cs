@@ -10,10 +10,15 @@
     {
         IEnumerable<CigarsHeroItemViewModel> GetWeaklySpecial();
 
-        SingleCigarViewModel GetSingleCigarById(int id);
+        IEnumerable<CigarWithBrandViewModel> AllCigars();
 
         IEnumerable<CigarWithBrandViewModel> CigaraWithTaste(int id);
 
         IEnumerable<CigarWithBrandViewModel> CiagrWithSpesificShape(int brandId);
+
+        public IEnumerable<CigarWithBrandViewModel> CigaraWithStrenght(int id);
+
+        SingleCigarViewModel GetSingleCigarById(int id);
+
     }
 }

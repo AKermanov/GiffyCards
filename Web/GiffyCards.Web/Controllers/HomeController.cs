@@ -36,5 +36,10 @@
             return this.View(
                 new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
+
+        public IActionResult CigarById(int id)
+        {
+            return this.Redirect($"/Brands/CigarById/{id}");
+        }
     }
 }
