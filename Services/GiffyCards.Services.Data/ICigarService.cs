@@ -10,7 +10,7 @@
     {
         IEnumerable<CigarsHeroItemViewModel> GetWeaklySpecial();
 
-        IEnumerable<CigarWithBrandViewModel> AllCigars();
+        IEnumerable<CigarWithBrandViewModel> AllCigars(int page, int itemsPerPage = 8);
 
         IEnumerable<CigarWithBrandViewModel> CigaraWithTaste(int id);
 
@@ -20,5 +20,6 @@
 
         SingleCigarViewModel GetSingleCigarById(int id);
 
+        int GetCount();
     }
 }

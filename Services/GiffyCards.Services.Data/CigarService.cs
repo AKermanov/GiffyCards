@@ -103,9 +103,13 @@
                 }).ToList();
         }
 
-        public IEnumerable<CigarWithBrandViewModel> AllCigars()
+        public IEnumerable<CigarWithBrandViewModel> AllCigars(int page, int itemsPerPage = 8)
         {
-            return this.cigarRepository.AllAsNoTracking().Select(x => new CigarWithBrandViewModel
+            return this.cigarRepository.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
+                .Skip((page - 1) * itemsPerPage)
+                .Take(itemsPerPage)
+                .Select(x => new CigarWithBrandViewModel
             {
                 Id = x.Id,
                 CiagrName = x.CigarName.Replace('-', ' '),
@@ -113,6 +117,11 @@
                 PriceForSingle = $"Single - US$ {x.PricePerUnit:f2}",
                 PriceForBox = $"Box 25 - US$ {x.PricePerUnit * 23:f2}",
             }).ToList();
+        }
+
+        public int GetCount()
+        {
+            return this.cigarRepository.All().Count();
         }
     }
 }

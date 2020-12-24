@@ -45,8 +45,6 @@
     <Folder Include="wwwroot\images\BrandImages\" />
     <Folder Include="wwwroot\images\AccessoriesImages\" />
     <Folder Include="wwwroot\images\AccsProductImages\" />
-    <Folder Include="wwwroot\images\CIgarImages\Bolivar\CoronasJunior\" />
-    <Folder Include="wwwroot\images\CIgarImages\Cohiba\" />
     <Folder Include="wwwroot\images\TasteImages\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\scss\" />
@@ -63,6 +61,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Tastes\ShowCigarWithTaste.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\icon-font.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\plugins.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\site.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\favicon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\AccessoriesImages\allass.jpg">
@@ -189,21 +205,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\BrandImages\Vegueros.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\images\CIgarImages\Bolivar\CoronasJunior\bolivar-coronas-junior_3_2_1_1_1_1_1_1_1_2_4_1_11.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\images\CIgarImages\Bolivar\CoronasJunior\bolivar-coronas-junior_5_1_11.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\images\CIgarImages\Bolivar\RoyalCoronas\bolivar-royal-coronas_2_2_1_1_1_1_1_1_1_2_4_1_11.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\images\CIgarImages\Bolivar\RoyalCoronas\bolivar-royal-coronas_3_2_1_1_1_1_1_1_1_2_4_1_11 (1).jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\images\CIgarImages\Bolivar\RoyalCoronas\bolivar-royal-coronas_6_1_2_1_1_1_4_1_1_1_1_1_1_1_1_2_4_1_10.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\images\cigars-guarantee-1.png">

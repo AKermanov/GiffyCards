@@ -1,5 +1,6 @@
 ﻿namespace GiffyCards.Web.Controllers
 {
+    using GiffyCards.Common;
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels.Cigar;
     using Microsoft.AspNetCore.Mvc;
@@ -13,11 +14,14 @@
             this.cigarService = cigarService;
         }
 
-        public IActionResult AllCigars()
+        public IActionResult AllCigars(int id = 1)
         {
             var all = new AllCIgarsViewModel
             {
-                All = this.cigarService.AllCigars(),
+                ItemsPerPage = GlobalConstants.CigarsPerPage,
+                PageNumber = id,
+                CigarsCount = this.cigarService.GetCount(),
+                All = this.cigarService.AllCigars(id, GlobalConstants.CigarsPerPage),
             };
 
             return this.View(all);
