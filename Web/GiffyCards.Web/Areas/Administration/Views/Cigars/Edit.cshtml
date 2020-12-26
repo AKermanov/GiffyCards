@@ -1,0 +1,104 @@
+﻿@model GiffyCards.Data.Models.Cigar
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Cigar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BrandId" class="control-label"></label>
+                <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                <span asp-validation-for="BrandId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CigarName" class="control-label"></label>
+                <input asp-for="CigarName" class="form-control" />
+                <span asp-validation-for="CigarName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrenghtId" class="control-label"></label>
+                <select asp-for="StrenghtId" class="form-control" asp-items="ViewBag.StrenghtId"></select>
+                <span asp-validation-for="StrenghtId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TasteId" class="control-label"></label>
+                <select asp-for="TasteId" class="form-control" asp-items="ViewBag.TasteId"></select>
+                <span asp-validation-for="TasteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SizeId" class="control-label"></label>
+                <select asp-for="SizeId" class="form-control" asp-items="ViewBag.SizeId"></select>
+                <span asp-validation-for="SizeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuestionId" class="control-label"></label>
+                <select asp-for="QuestionId" class="form-control" asp-items="ViewBag.QuestionId"></select>
+                <span asp-validation-for="QuestionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bland" class="control-label"></label>
+                <input asp-for="Bland" class="form-control" />
+                <span asp-validation-for="Bland" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescriptionId" class="control-label"></label>
+                <select asp-for="DescriptionId" class="form-control" asp-items="ViewBag.DescriptionId"></select>
+                <span asp-validation-for="DescriptionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShapeId" class="control-label"></label>
+                <select asp-for="ShapeId" class="form-control" asp-items="ViewBag.ShapeId"></select>
+                <span asp-validation-for="ShapeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PricePerUnit" class="control-label"></label>
+                <input asp-for="PricePerUnit" class="form-control" />
+                <span asp-validation-for="PricePerUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeletedOn" class="control-label"></label>
+                <input asp-for="DeletedOn" class="form-control" />
+                <span asp-validation-for="DeletedOn" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModifiedOn" class="control-label"></label>
+                <input asp-for="ModifiedOn" class="form-control" />
+                <span asp-validation-for="ModifiedOn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
