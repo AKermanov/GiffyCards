@@ -16,7 +16,7 @@
 
         public IActionResult AllCigars(int id = 1)
         {
-            var all = new AllCIgarsViewModel
+            var all = new AllCigarsViewModel
             {
                 ItemsPerPage = GlobalConstants.CigarsPerPage,
                 PageNumber = id,

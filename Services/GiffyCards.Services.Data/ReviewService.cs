@@ -34,6 +34,7 @@
                 };
 
             }
+
             try
             {
                 await this.reviewRepository.AddAsync(review);
@@ -44,7 +45,6 @@
 
                 Console.WriteLine(ex);
             }
-          
         }
     }
 }

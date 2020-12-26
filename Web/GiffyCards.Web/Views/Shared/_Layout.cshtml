@@ -169,6 +169,10 @@
                                 <!-- Category Menu -->
                                 <nav class="nav justify-content-center">
                                     <ul>
+                                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                                        {
+                                            <li><a asp-area="Administration" asp-controller="Cigars" asp-action="Index">ADMIN</a></li>
+                                        }
                                         <li><a asp-controller="Brands" asp-action="ShowAllBrands">BRANDS</a></li>
                                         <li><a asp-controller="Cigars" asp-action="AllCigars">SHOWROOM</a></li>
                                         <li><a asp-area="" asp-page="/Products">PROMOTIONS</a></li>

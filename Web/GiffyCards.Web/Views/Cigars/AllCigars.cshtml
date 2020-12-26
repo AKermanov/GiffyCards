@@ -73,7 +73,7 @@
     <nav aria-label="...">
         <ul class="pagination">
             <li class="page-item @if(!Model.HasPreviousPage) {<text>disabled</text>}">
-                <span class="page-link" asp-action="AllCigars" asp-route-id="@Model.PreviousPageNumber">Previous</span>
+                <a class="page-link" asp-action="AllCigars" asp-route-id="@Model.PreviousPageNumber">Previous</a>
             </li>
             @for (int i = Model.PageNumber - 3; i < Model.PageNumber; i++)
             {

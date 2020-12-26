@@ -1,6 +1,7 @@
 ﻿namespace GiffyCards.Web.Controllers
 {
     using System.Diagnostics;
+
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels;
     using GiffyCards.Web.ViewModels.Home;

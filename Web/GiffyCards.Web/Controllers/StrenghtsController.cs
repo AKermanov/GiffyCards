@@ -6,7 +6,6 @@
 
     public class StrenghtsController : Controller
     {
-
         private readonly IStrenghtService strenghtsService;
         private readonly ICigarService cigarService;
 
