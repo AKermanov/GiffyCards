@@ -28,8 +28,8 @@
 
         public StrnghtsViewModel CurrentStrenght(int id)
         {
-            return this.strenght.AllAsNoTracking().Select
-                 (x => new StrnghtsViewModel
+            return this.strenght.AllAsNoTracking().Select(
+                 x => new StrnghtsViewModel
                  {
                      Id = x.Id,
                      ImageUrl = x.PictureUrl,

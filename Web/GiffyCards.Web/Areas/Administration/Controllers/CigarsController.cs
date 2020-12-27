@@ -6,6 +6,8 @@
 
     using GiffyCards.Data.Common.Repositories;
     using GiffyCards.Data.Models;
+    using GiffyCards.Web.Areas.Administration.Services;
+    using GiffyCards.Web.ViewModels.Cigar;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
@@ -13,16 +15,23 @@
     public class CigarsController : AdministrationController
     {
         private readonly IDeletableEntityRepository<Cigar> cigarEntity;
+        private readonly ICigarServiceAdmin cigarServiceAdmin;
 
-        public CigarsController(IDeletableEntityRepository<Cigar> cigarEntity)
+        public CigarsController(IDeletableEntityRepository<Cigar> cigarEntity, ICigarServiceAdmin cigarServiceAdmin)
         {
             this.cigarEntity = cigarEntity;
+            this.cigarServiceAdmin = cigarServiceAdmin;
         }
 
         // GET: Administration/Cigars
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return this.View(await this.cigarEntity.AllWithDeleted().ToListAsync());
+            var allCigars = new AllCigarsAdmin
+            {
+                AllAdmin = this.cigarServiceAdmin.GetAll(),
+            };
+
+            return this.View(allCigars);
         }
 
         // GET: Administration/Cigars/Details/5
@@ -46,7 +55,16 @@
         // GET: Administration/Cigars/Create
         public IActionResult Create()
         {
-            return this.View();
+            var viewModel = new CreateCigarInputModel
+            {
+                BrandItems = this.cigarServiceAdmin.BrandsAsKeyValuePairs(),
+                ShapeItems = this.cigarServiceAdmin.ShapeAsKeyValuePairs(),
+                StrenghtItems = this.cigarServiceAdmin.StrengthAsKeyValuePairs(),
+                TasteItems = this.cigarServiceAdmin.TasteAsKeyValuePairs(),
+                SizeItems = this.cigarServiceAdmin.SizeAsKeyValuePairs(),
+            };
+
+            return this.View(viewModel);
         }
 
         // POST: Administration/Cigars/Create
@@ -54,16 +72,24 @@
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BrandId,CigarName,StrenghtId,TasteId,SizeId,QuestionId,Bland,DescriptionId,ShapeId,PricePerUnit,ImageUrl,IsDeleted,DeletedOn,Id,CreatedOn,ModifiedOn")] Cigar cigar)
+        public async Task<IActionResult> Create(CreateCigarInputModel input)
         {
-            if (this.ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                await this.cigarEntity.AddAsync(cigar);
-                await this.cigarEntity.SaveChangesAsync();
-                return this.RedirectToAction(nameof(this.Index));
+                var viewModel = new CreateCigarInputModel
+                {
+                    BrandItems = this.cigarServiceAdmin.BrandsAsKeyValuePairs(),
+                    ShapeItems = this.cigarServiceAdmin.ShapeAsKeyValuePairs(),
+                    StrenghtItems = this.cigarServiceAdmin.StrengthAsKeyValuePairs(),
+                    TasteItems = this.cigarServiceAdmin.TasteAsKeyValuePairs(),
+                    SizeItems = this.cigarServiceAdmin.SizeAsKeyValuePairs(),
+                };
+
+                return this.View(viewModel);
             }
 
-            return this.View(cigar);
+            await this.cigarServiceAdmin.CreateCigar(input);
+            return this.RedirectToAction(nameof(this.Index));
         }
 
         // GET: Administration/Cigars/Edit/5
@@ -129,7 +155,8 @@
                 return this.NotFound();
             }
 
-            var cigar = await this.cigarEntity.All().FirstOrDefaultAsync(x => x.Id == id);
+            var cigar = await this.cigarServiceAdmin.DeleteCigar(id);
+
             if (cigar == null)
             {
                 return this.NotFound();
@@ -144,11 +171,7 @@
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var cigar = await this.cigarEntity.All().FirstOrDefaultAsync(x => x.Id == id);
-
-            this.cigarEntity.Delete(cigar);
-
-            await this.cigarEntity.SaveChangesAsync();
+            await this.cigarServiceAdmin.DeleteCigarConfirmed(id);
 
             return this.RedirectToAction(nameof(this.Index));
         }

@@ -1,96 +1,59 @@
-﻿@model GiffyCards.Data.Models.Cigar
+﻿@model GiffyCards.Web.ViewModels.Cigar.CreateCigarInputModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Cigar";
+    var brandItems = this.Model.BrandItems.Select(x => new SelectListItem(x.Value, x.Key));
+    var StrenghtItems = this.Model.StrenghtItems.Select(x => new SelectListItem(x.Value, x.Key));
+    var tasteItems = this.Model.TasteItems.Select(x => new SelectListItem(x.Value, x.Key));
+    var sizeItems = this.Model.SizeItems.Select(x => new SelectListItem(x.Value, x.Key));
+    var shapeItems = this.Model.ShapeItems.Select(x => new SelectListItem(x.Value, x.Key));
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>Cigar</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="BrandId" class="control-label"></label>
-                <select asp-for="BrandId" class ="form-control" asp-items="ViewBag.BrandId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="CigarName" class="control-label"></label>
-                <input asp-for="CigarName" class="form-control" />
-                <span asp-validation-for="CigarName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StrenghtId" class="control-label"></label>
-                <select asp-for="StrenghtId" class ="form-control" asp-items="ViewBag.StrenghtId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="TasteId" class="control-label"></label>
-                <select asp-for="TasteId" class ="form-control" asp-items="ViewBag.TasteId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="SizeId" class="control-label"></label>
-                <select asp-for="SizeId" class ="form-control" asp-items="ViewBag.SizeId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="QuestionId" class="control-label"></label>
-                <select asp-for="QuestionId" class ="form-control" asp-items="ViewBag.QuestionId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bland" class="control-label"></label>
-                <input asp-for="Bland" class="form-control" />
-                <span asp-validation-for="Bland" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DescriptionId" class="control-label"></label>
-                <select asp-for="DescriptionId" class ="form-control" asp-items="ViewBag.DescriptionId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShapeId" class="control-label"></label>
-                <select asp-for="ShapeId" class ="form-control" asp-items="ViewBag.ShapeId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="PricePerUnit" class="control-label"></label>
-                <input asp-for="PricePerUnit" class="form-control" />
-                <span asp-validation-for="PricePerUnit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeletedOn" class="control-label"></label>
-                <input asp-for="DeletedOn" class="form-control" />
-                <span asp-validation-for="DeletedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedOn" class="control-label"></label>
-                <input asp-for="CreatedOn" class="form-control" />
-                <span asp-validation-for="CreatedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModifiedOn" class="control-label"></label>
-                <input asp-for="ModifiedOn" class="form-control" />
-                <span asp-validation-for="ModifiedOn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<form method="post" class="col-md-6 offset-md-3">
+    <div class="form-group">
+        <label asp-for="BrandId"></label>
+        <select asp-for="BrandId" class="form-control" asp-items="brandItems"></select>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <div class="form-group">
+        <label asp-for="CigarName"></label>
+        <input asp-for="CigarName" class="form-control" />
+        <span asp-validation-for="CigarName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StrenghtId"></label>
+        <select asp-for="StrenghtId" class="form-control" asp-items="StrenghtItems"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="TasteId"></label>
+        <select asp-for="TasteId" class="form-control" asp-items="tasteItems"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="SizeId"></label>
+        <select asp-for="SizeId" class="form-control" asp-items="sizeItems"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bland"></label>
+        <input asp-for="Bland" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="ShapeId"></label>
+        <select asp-for="ShapeId" class="form-control" asp-items="shapeItems"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PricePerUnit"></label>
+        <input asp-for="PricePerUnit" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-info">Back to List</a>
+</form>

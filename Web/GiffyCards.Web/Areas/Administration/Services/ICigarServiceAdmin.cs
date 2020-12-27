@@ -2,14 +2,28 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
+    using GiffyCards.Data.Models;
     using GiffyCards.Web.ViewModels.Brands;
     using GiffyCards.Web.ViewModels.Cigar;
 
     public interface ICigarServiceAdmin
     {
-        Task CreateCigar (CreateCigarInputModel input);
+        Task CreateCigar(CreateCigarInputModel input);
 
-        Task<IEnumerable<CigarWithBrandViewModel>> GetAll(SingleCigarViewModel cigars);
+        Task DeleteCigarConfirmed(int id);
+
+        Task<Cigar> DeleteCigar(int? id);
+
+        IEnumerable<SingleCigarViewModel> GetAll();
+
+        IEnumerable<KeyValuePair<string, string>> BrandsAsKeyValuePairs();
+
+        IEnumerable<KeyValuePair<string, string>> ShapeAsKeyValuePairs();
+
+        IEnumerable<KeyValuePair<string, string>> SizeAsKeyValuePairs();
+
+        IEnumerable<KeyValuePair<string, string>> TasteAsKeyValuePairs();
+
+        IEnumerable<KeyValuePair<string, string>> StrengthAsKeyValuePairs();
     }
 }

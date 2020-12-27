@@ -5,7 +5,7 @@
 
     using GiffyCards.Web.ViewModels.Brands;
 
-    public class AllCigarsViewModel
+    public class AllCIgarsViewModel
     {
         public IEnumerable<CigarWithBrandViewModel> All { get; set; }
 

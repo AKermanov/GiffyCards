@@ -11,6 +11,7 @@
     using GiffyCards.Services.Data;
     using GiffyCards.Services.Mapping;
     using GiffyCards.Services.Messaging;
+    using GiffyCards.Web.Areas.Administration.Services;
     using GiffyCards.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
@@ -71,6 +72,7 @@
             services.AddTransient<ITastesService, TastesService>();
             services.AddTransient<ISizeService, SizeService>();
             services.AddTransient<IStrenghtService, StrenghtService>();
+            services.AddTransient<ICigarServiceAdmin, CigarServiceAdmin>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

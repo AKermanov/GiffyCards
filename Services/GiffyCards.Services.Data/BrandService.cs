@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
     using GiffyCards.Data.Common.Repositories;
     using GiffyCards.Data.Models;
     using GiffyCards.Web.ViewModels.Brands;

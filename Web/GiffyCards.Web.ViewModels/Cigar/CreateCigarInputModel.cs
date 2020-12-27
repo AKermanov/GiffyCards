@@ -1,11 +1,15 @@
 ﻿namespace GiffyCards.Web.ViewModels.Cigar
 {
-    using GiffyCards.Data.Models;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     public class CreateCigarInputModel
     {
         public int BrandId { get; set; }
 
+        [Required]
+        [MinLength(10)]
+        [MaxLength(100)]
         public string CigarName { get; set; }
 
         public int StrenghtId { get; set; }
@@ -22,6 +26,17 @@
 
         public decimal PricePerUnit { get; set; }
 
+        [Required]
         public string ImageUrl { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> BrandItems { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> StrenghtItems { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> TasteItems { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> SizeItems { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> ShapeItems { get; set; }
     }
 }

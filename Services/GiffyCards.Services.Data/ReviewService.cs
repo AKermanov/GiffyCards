@@ -32,7 +32,6 @@
                     Score = reviewsViewModel.Score,
                     CreatedOn = DateTime.UtcNow,
                 };
-
             }
 
             try
@@ -42,7 +41,6 @@
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex);
             }
         }

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
     using GiffyCards.Data.Common.Repositories;
     using GiffyCards.Data.Models;
     using GiffyCards.Web.ViewModels.Brands;
@@ -85,8 +86,7 @@
                          Name = v.Name,
                          ReviewText = v.ReviewText,
                          CigarId = v.CigarId,
-                     }).ToList()
-,
+                     }).ToList(),
                  }).FirstOrDefault();
         }
 

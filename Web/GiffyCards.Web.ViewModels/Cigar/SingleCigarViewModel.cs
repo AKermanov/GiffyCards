@@ -1,5 +1,6 @@
 ﻿namespace GiffyCards.Web.ViewModels.Cigar
 {
+    using System;
     using System.Collections.Generic;
 
     using GiffyCards.Data.Models;
@@ -33,7 +34,8 @@
 
         public string ImageUrl { get; set; }
 
-        public IEnumerable<ReviewsViewModel> Reviews { get; set; }
+        public DateTime? CreatedOn { get; set; }
 
+        public IEnumerable<ReviewsViewModel> Reviews { get; set; }
     }
 }

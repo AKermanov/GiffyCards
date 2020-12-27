@@ -21,8 +21,14 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddReview(ReviewInputModel reviewInputModel)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
             await this.reviewService.SetRevewAsync(reviewInputModel);
 
             return this.Redirect($"/Brands/CigarById/{reviewInputModel.CigarId}");

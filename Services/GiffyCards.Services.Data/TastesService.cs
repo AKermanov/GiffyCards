@@ -28,8 +28,8 @@
 
         public TastesViewModel CurrentTaste(int id)
         {
-           return this.tasteRepository.AllAsNoTracking().Select
-                (x => new TastesViewModel
+           return this.tasteRepository.AllAsNoTracking().Select(
+                x => new TastesViewModel
                 {
                     Id = x.Id,
                     ImageUrl = x.ImageUrl,
