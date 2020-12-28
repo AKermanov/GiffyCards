@@ -73,6 +73,7 @@
             services.AddTransient<ISizeService, SizeService>();
             services.AddTransient<IStrenghtService, StrenghtService>();
             services.AddTransient<ICigarServiceAdmin, CigarServiceAdmin>();
+            services.AddTransient<ISearchCigarService, SearchCigarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -42,7 +42,7 @@
                 return this.NotFound();
             }
 
-            var cigar = await this.cigarEntity.All().FirstOrDefaultAsync(m => m.Id == id);
+            var cigar = await this.cigarServiceAdmin.CigarDetails(id);
 
             if (cigar == null)
             {

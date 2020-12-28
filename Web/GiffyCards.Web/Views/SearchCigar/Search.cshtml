@@ -1,0 +1,79 @@
+﻿@model GiffyCards.Web.ViewModels.Search.SearchViewModel
+
+@if (Model.SearchResult.Any())
+{
+    <div class="product-section section mb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        @foreach (var cigar in Model.SearchResult)
+                        {
+
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
+                                <!-- Product Start -->
+                                <div class="ee-product">
+
+                                    <!-- Image -->
+                                    <div class="image">
+
+                                        <a href="single-product.html" class="img"><img src="@cigar.ImageUrl" alt="Product Image"></a>
+
+                                        <div class="wishlist-compare">
+                                            <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
+                                            <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
+                                        </div>
+
+                                        <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+
+                                    </div>
+
+                                    <!-- Content -->
+                                    <div class="content">
+
+                                        <!-- Category & Title -->
+                                        <div class="category-title">
+
+                                            <h5 class="title"><a asp-controller="Brands" asp-action="CigarById" asp-route-id="@cigar.Id">@cigar.CiagrName</a></h5>
+
+                                        </div>
+
+                                        <!-- Price & Ratting -->
+                                        <div class="price-ratting">
+
+                                            <h5 class="price">@cigar.PriceForSingle</h5>
+                                            <h5 class="price">@cigar.PriceForBox</h5>
+                                            <br><br>
+                                            <div class="ratting">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div><!-- Product End -->
+
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole, nothing found!</strong> Try again.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}

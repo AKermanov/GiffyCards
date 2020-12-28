@@ -41,6 +41,11 @@
                 .ToList().Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.BrandName));
         }
 
+        public Task<Cigar> CigarDetails(int? id)
+        {
+            return this.cigarRepository.All().FirstOrDefaultAsync(m => m.Id == id);
+        }
+
         public async Task CreateCigar(CreateCigarInputModel input)
         {
             var cigar = new Cigar

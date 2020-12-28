@@ -33,18 +33,8 @@
                         <div class="col order-12 order-xs-12 order-lg-2 mt-10 mb-10">
                             <!--Search Engine-->
                             <div class="header-advance-search">
-
-                                <form action="#">
-                                    <div class="input"><input type="text" placeholder="Search your product"></div>
-                                    <div class="select">
-                                        <select class="nice-select">
-                                            <option>All</option>
-                                            <option>Brands</option>
-                                            <option>Strength</option>
-                                            <option>Size</option>
-                                            <option>Taste</option>
-                                        </select>
-                                    </div>
+                                <form method="get" asp-controller="SearchCigar" asp-action="Search">
+                                    <div class="input"><input type="text" placeholder="Search your product" name="input"></div>
                                     <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
                                 </form>
                             </div>  <!--Search Engine End-->
@@ -81,22 +71,20 @@
                                     <ul>
                                         <li class="active"><a asp-controller="Home" asp-action="Index">HOME</a></li>
                                         <li>
-                                            <a asp-area="" asp-page="/Products">Shop</a>
+                                            <a asp-controller="Cigars" asp-action="AllCigars">Shop</a>
                                         </li>
                                         <li class="menu-item-has-children">
                                             <a href="#">PAGES</a>
                                             <ul class="mega-menu three-column">
                                                 <li>
-                                                    <a href="#">Column One</a>
                                                     <ul>
-                                                        <li><a asp-area="" asp-page="/AboutUs">About us</a></li>
+                                                        <li><a asp-controller="Home" asp-action="AboutUs">About us</a></li>
                                                         <li><a asp-area="" asp-page="/BestDeals">Best Deals</a></li>
                                                         <li><a asp-area="" asp-page="/Cart">Cart</a></li>
                                                         <li><a asp-area="" asp-page="/CheckOut">Checkout</a></li>
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Column Two</a>
                                                     <ul>
                                                         <li><a asp-area="" asp-page="/Compare">Compare</a></li>
                                                         <li><a asp-area="" asp-page="/Faq">Faq</a></li>
@@ -107,7 +95,6 @@
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Column Three</a>
                                                     <ul>
                                                         <li><a asp-area="" asp-page="/TermsConditions">Terms & Conditions</a></li>
                                                         <li><a asp-area="" asp-page="/TackOrder">Track Order</a></li>

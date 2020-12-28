@@ -12,6 +12,8 @@
 
         Task DeleteCigarConfirmed(int id);
 
+        Task<Cigar> CigarDetails(int? id);
+
         Task<Cigar> DeleteCigar(int? id);
 
         IEnumerable<SingleCigarViewModel> GetAll();

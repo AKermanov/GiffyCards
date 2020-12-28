@@ -42,5 +42,10 @@
         {
             return this.Redirect($"/Brands/CigarById/{id}");
         }
+
+        public IActionResult AboutUs()
+        {
+            return this.View();
+        }
     }
 }

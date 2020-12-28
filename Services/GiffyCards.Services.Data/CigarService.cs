@@ -106,7 +106,7 @@
         public IEnumerable<CigarWithBrandViewModel> AllCigars(int page, int itemsPerPage = 8)
         {
             return this.cigarRepository.AllAsNoTracking()
-                .OrderByDescending(x => x.Id)
+                .OrderBy(x => x.Id)
                 .Skip((page - 1) * itemsPerPage)
                 .Take(itemsPerPage)
                 .Select(x => new CigarWithBrandViewModel
