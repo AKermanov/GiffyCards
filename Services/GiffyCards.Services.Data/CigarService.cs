@@ -93,12 +93,13 @@
         public IEnumerable<CigarsHeroItemViewModel> GetWeaklySpecial()
         {
             return this.cigarRepository.AllAsNoTracking()
+                .OrderBy(r => Guid.NewGuid())
                 .Take(5)
                 .Select(x => new CigarsHeroItemViewModel
                 {
                     Id = x.Id,
                     CigarName = x.CigarName,
-                    Discount = Math.Round((x.PricePerUnit / 2) + 10).ToString("G29") + '%',
+                    Discount = Math.Round((x.PricePerUnit / 5) + 10).ToString("G29") + '%',
                     ImageUrl = x.ImageUrl,
                 }).ToList();
         }

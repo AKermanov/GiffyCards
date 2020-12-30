@@ -34,14 +34,15 @@
                     </div>
 
                     <div class="single-product-description">
-
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        @if (Model.Reviews.Any())
+                        {
+                            @Math.Round(Model.Reviews.Average(x => x.Score), 2)
+                        }
 
                         <div class="desc">
                             <p>@Model.Description</p>
@@ -50,22 +51,22 @@
                         <span class="availability">Availability: <span>In Stock</span></span>
 
                         <div class="quantity-colors">
-
                             <div class="quantity">
                                 <h5>@Model.PriceForSingle</h5>
-                                <div class="pro-qty"><input type="text" value="1"></div>
-                            </div>
-
-                            <div class="quantity">
                                 <h5>@Model.PriceForBox</h5>
-                                <div class="pro-qty"><input type="text" value="1"></div>
                             </div>
-
                         </div>
 
                         <div class="actions">
 
-                            <form asp-page-handler="AddToCart" method="post" name="addToCartForm" id="add_cart_form">
+                            <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post" name="addToCartForm" id="add_cart_form">
+                                <h5>Single:</h5>
+                                <div class="col-md-3 col-12 mb-15">
+                                    <input asp-for="QuantutyForSingle" class="form-control" />
+                                    <span asp-validation-for="QuantutyForSingle" class="text-danger"></span>
+                                </div>
+
+                                <span asp-validation-for="QuantutyForSingle" class="text-danger"></span>
                                 <a href="javascript:;" onclick="parentNode.submit();" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
                                 <input type="hidden" asp-for="@Model.Id" name="productId" />
                             </form>
@@ -152,26 +153,26 @@
                         <div class="product-ratting-wrap">
                             @foreach (var review in Model.Reviews)
                             {
-                        <div class="rattings-wrapper">
+                                <div class="rattings-wrapper">
 
-                            <div class="sin-rattings">
-                                <div class="ratting-author">
-                                    <h3>@review.Name</h3>
-                                    <div class="ratting-star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <span>@review.Score</span>
+                                    <div class="sin-rattings">
+                                        <div class="ratting-author">
+                                            <h3>@review.Name</h3>
+                                            <div class="ratting-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <span>@review.Score</span>
+                                            </div>
+                                        </div>
+                                        <p>@review.ReviewText</p>
                                     </div>
-                                </div>
-                                <p>@review.ReviewText</p>
+                                </div>}
+                            <div class="col-12">
+                                <a class="btn btn-info" asp-area="" asp-controller="Reviews" asp-action="AddReview" asp-route-id="@Model.Id">Add Review Here!</a>
                             </div>
-                        </div>}
-                        <div class="col-12">
-                            <a class="btn btn-info" asp-area="" asp-controller="Reviews" asp-action="AddReview" asp-route-id="@Model.Id">Add Review Here!</a>
-                        </div>
                         </div>
 
                     </div>
@@ -183,4 +184,5 @@
 
     </div>
 </div>
+
 <!-- Single Product Section End -->

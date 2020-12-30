@@ -6,11 +6,6 @@
 
     public class Order : BaseDeletableModel<int>
     {
-        public Order()
-        {
-            this.OrderProducts = new HashSet<OrderProducts>();
-        }
-
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
@@ -23,6 +18,8 @@
 
         public decimal? Price { get; set; }
 
-        public virtual ICollection<OrderProducts> OrderProducts { get; set; }
+        public int? ShoppingCartId { get; set; }
+
+        public virtual ShoppingCart ShoppingCart { get; set; }
     }
 }

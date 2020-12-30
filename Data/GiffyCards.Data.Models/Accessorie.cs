@@ -8,7 +8,7 @@
     {
         public Accessorie()
         {
-            this.OrderProducts = new HashSet<OrderProducts>();
+            this.ShoppingCarts = new HashSet<ShoppingCart>();
             this.Reviews = new HashSet<Review>();
         }
 
@@ -26,7 +26,7 @@
 
         public string PictureUrl { get; set; }
 
-        public virtual ICollection<OrderProducts> OrderProducts { get; set; }
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
     }

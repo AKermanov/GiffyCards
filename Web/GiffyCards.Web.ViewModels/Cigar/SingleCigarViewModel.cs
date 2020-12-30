@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using GiffyCards.Data.Models;
     using GiffyCards.Web.ViewModels.Reviews;
@@ -33,6 +34,12 @@
         public string PriceForBox { get; set; }
 
         public string ImageUrl { get; set; }
+
+        [Range(1, 24)]
+        public int QuantutyForSingle { get; set; }
+
+        [Range(1, 5)]
+        public int QuantityForBox { get; set; }
 
         public DateTime? CreatedOn { get; set; }
 

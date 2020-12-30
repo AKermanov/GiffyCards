@@ -38,9 +38,7 @@
 
         public DbSet<Order> Orders { get; set; }
 
-        public DbSet<OrderProducts> OrderProducts { get; set; }
-
-        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<ShoppingCart> ShoppingCart { get; set; }
 
         public DbSet<Question> Questions { get; set; }
 

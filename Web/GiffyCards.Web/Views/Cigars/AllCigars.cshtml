@@ -25,9 +25,6 @@
                                         <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
                                         <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                     </div>
-
-                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
                                 </div>
 
                                 <!-- Content -->
@@ -36,7 +33,7 @@
                                     <!-- Category & Title -->
                                     <div class="category-title">
 
-                                        <h5 class="title"><a asp-action="CigarById" asp-route-id="@cigar.Id">@cigar.CiagrName</a></h5>
+                                        <h5 class="title"><a asp-controller="Brands" asp-action="CigarById" asp-route-id="@cigar.Id">@cigar.CiagrName</a></h5>
 
                                     </div>
 

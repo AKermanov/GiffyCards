@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css//bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/icon-font.min.css" />
     <link rel="stylesheet" href="~/css//plugins.css" />
+    <link rel="stylesheet" href="~/css/shopping.css" />
     <link rel="stylesheet" href="~/css/style.css" />
     <script src="~/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -80,7 +81,7 @@
                                                     <ul>
                                                         <li><a asp-controller="Home" asp-action="AboutUs">About us</a></li>
                                                         <li><a asp-area="" asp-page="/BestDeals">Best Deals</a></li>
-                                                        <li><a asp-area="" asp-page="/Cart">Cart</a></li>
+                                                        <li><a asp-controller="ShoppingCart" asp-action="Cart">Cart</a></li>
                                                         <li><a asp-area="" asp-page="/CheckOut">Checkout</a></li>
                                                     </ul>
                                                 </li>
@@ -115,25 +116,24 @@
                                 </nav>
                             </div><!-- Main Menu End -->
                         </div>
-
+                       
                         <div class="col order-2 order-lg-12 order-xl-12">
-                            <!-- Header Shop Links Start -->
+                                <!-- Header Shop Links Start -->
                             <div class="header-shop-links">
-
-                                <!-- Compare -->
-                                <a asp-area="" asp-page="/Compare" class="header-compare"><i class="ti-control-shuffle"></i></a>
-                                <!-- Wishlist -->
-                                <a asp-area="" asp-page="/Wishlist" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
-                                <!-- Cart -->
-                                <a asp-area="" asp-page="/Cart" class="header-cart"><i class="ti-shopping-cart"></i> <span class="number">3</span></a>
-
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a asp-controller="ShoppingCart" asp-action="Cart" ><i class="ti-shopping-cart"></i></a>
+                                    <!-- Compare -->
+                                    <a asp-area="" asp-page="/Compare" class="header-compare"><i class="ti-control-shuffle"></i></a>
+                                    <!-- Wishlist -->
+                                    <a asp-area="" asp-page="/Wishlist" class="header-wishlist"><i class="ti-heart"></i> <span class="number">3</span></a>
+                                    <!-- Cart -->
+                                }
                             </div><!-- Header Shop Links End -->
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="mobile-menu order-12 d-block d-lg-none col"></div>
                         </div>
-
-                        <!-- Mobile Menu -->
-                        <div class="mobile-menu order-12 d-block d-lg-none col"></div>
-
-                    </div>
                 </div>
             </div>
 

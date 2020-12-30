@@ -80,6 +80,9 @@
     <Content Update="wwwroot\css\plugins.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="wwwroot\css\shopping.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="wwwroot\css\site.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

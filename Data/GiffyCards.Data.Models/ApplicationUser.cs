@@ -18,6 +18,7 @@ namespace GiffyCards.Data.Models
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Orders = new HashSet<Order>();
+            this.ShoppingCarts = new HashSet<ShoppingCart>();
         }
 
         // Audit info
@@ -42,5 +43,6 @@ namespace GiffyCards.Data.Models
 
         public virtual ICollection<Order> Orders { get; set; }
 
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
     }
 }

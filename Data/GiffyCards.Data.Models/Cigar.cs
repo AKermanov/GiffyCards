@@ -8,7 +8,7 @@
     {
         public Cigar()
         {
-            this.OrderProducts = new HashSet<OrderProducts>();
+            this.ShoppingCarts = new HashSet<ShoppingCart>();
             this.Reviews = new HashSet<Review>();
         }
 
@@ -48,8 +48,8 @@
 
         public string ImageUrl { get; set; }
 
-        public virtual ICollection<OrderProducts> OrderProducts { get; set; }
-
         public virtual ICollection<Review> Reviews { get; set; }
+
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
     }
 }
