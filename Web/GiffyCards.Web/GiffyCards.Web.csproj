@@ -55,6 +55,7 @@
     <Folder Include="wwwroot\images\BrandImages\" />
     <Folder Include="wwwroot\images\AccessoriesImages\" />
     <Folder Include="wwwroot\images\AccsProductImages\" />
+    <Folder Include="wwwroot\images\CustomerPhotos\" />
     <Folder Include="wwwroot\images\TasteImages\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\scss\" />
@@ -75,6 +76,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Tastes\ShowCigarWithTaste.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\UsersPictures\AllPictures.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\UsersPictures\UploadPicture.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\icon-font.min.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\css\plugins.css">

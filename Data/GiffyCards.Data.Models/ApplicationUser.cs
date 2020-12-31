@@ -19,6 +19,7 @@ namespace GiffyCards.Data.Models
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Orders = new HashSet<Order>();
             this.ShoppingCarts = new HashSet<ShoppingCart>();
+            this.CustomerPhotos = new HashSet<CustomerPhoto>();
         }
 
         // Audit info
@@ -31,9 +32,7 @@ namespace GiffyCards.Data.Models
 
         public DateTime? DeletedOn { get; set; }
 
-        public int? CustomerPhotoId { get; set; }
-
-        public CustomerPhoto CustomerPhoto { get; set; }
+       
 
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 
@@ -44,5 +43,7 @@ namespace GiffyCards.Data.Models
         public virtual ICollection<Order> Orders { get; set; }
 
         public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
+
+        public virtual ICollection<CustomerPhoto> CustomerPhotos { get; set; }
     }
 }

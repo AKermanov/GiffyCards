@@ -10,10 +10,12 @@
     public class HomeController : BaseController
     {
         private readonly ICigarService cigarService;
+        private readonly IPictureService pictureService;
 
-        public HomeController(ICigarService cigarService)
+        public HomeController(ICigarService cigarService, IPictureService pictureService)
         {
             this.cigarService = cigarService;
+            this.pictureService = pictureService;
         }
 
         public IActionResult Index()
@@ -21,6 +23,7 @@
             var viewModel = new DisplayHomePageViewModel
             {
                 Cigars = this.cigarService.GetWeaklySpecial(),
+                CustomerPictures = this.pictureService.GetAllPictures(),
             };
 
             return this.View(viewModel);

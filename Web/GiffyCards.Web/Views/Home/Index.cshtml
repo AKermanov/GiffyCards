@@ -10,8 +10,8 @@
     <div class="container">
         <div class="row">
             <div class="col">
-               
-                    <!-- Hero Slider Start -->
+
+                <!-- Hero Slider Start -->
                 <div class="hero-slider hero-slider-one">
                     @foreach (var cigar in this.Model.Cigars)
                     {
@@ -24,7 +24,7 @@
 
                                     <h2>WEEKLY SPECIALS</h2>
                                     <h1><span>@cigar.CigarName</span></h1>
-                                    <h1>IT’S <span class="big">@cigar.Discount</span> OFF</h1>
+                                    <h1>IT'S <span class="big">@cigar.Discount</span> OFF</h1>
                                     <a asp-action="CigarById" asp-route-id="@cigar.Id">smoke now</a>
 
                                 </div>
@@ -43,3 +43,17 @@
         </div>
     </div>
 </div>
+
+<br />
+
+<h2>CUSTOMERS PICTURES</h2>
+<table style="width:100%">
+    <tbody>
+        @foreach (var item in Model.CustomerPictures)
+        {
+            <tr>
+                <td class="text-center"><img style="width:70%;" class="img-responsive" src="@item.ImageUrl" /></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -9,7 +9,6 @@
     {
         public CustomerPhoto()
         {
-            this.CustomerPhotos = new HashSet<ApplicationUser>();
             this.Id = Guid.NewGuid().ToString();
         }
 
@@ -21,7 +20,9 @@
 
         public string PhotoText { get; set; }
 
-        public virtual ICollection<ApplicationUser> CustomerPhotos { get; set; }
+        public string UserId { get; set; }
+
+        public ApplicationUser User { get; set; }
 
         // The content of the image is in the file sysem
     }

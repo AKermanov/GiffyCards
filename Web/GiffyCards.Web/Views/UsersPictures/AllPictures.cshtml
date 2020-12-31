@@ -1,0 +1,18 @@
+﻿@model GiffyCards.Web.ViewModels.Pictures.AllPicturesViewModel
+
+<h1>My Pictures</h1>
+<div class="media">
+    @foreach (var item in Model.CustomersPictures)
+    {
+        <img width="100" class="mr-3 img-responsive" src="@item.ImageUrl" alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0">Text</h5>
+            @item.PhotoText
+
+            <form method="post" asp-action="DeletePicture">
+                <input type="hidden" name="pictureId" asp-for="@item.PictureId" />
+                <input type="submit" value="Remove" class="btn btn-danger" />
+            </form>
+        </div>
+    }
+</div>

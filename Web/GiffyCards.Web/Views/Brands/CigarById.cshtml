@@ -170,9 +170,10 @@
                                         <p>@review.ReviewText</p>
                                     </div>
                                 </div>}
-                            <div class="col-12">
-                                <a class="btn btn-info" asp-area="" asp-controller="Reviews" asp-action="AddReview" asp-route-id="@Model.Id">Add Review Here!</a>
-                            </div>
+                        <div class="col-12">
+                            <a class="btn btn-info" asp-area="" asp-controller="Reviews" asp-action="AddReview" asp-route-id="@Model.Id">Add Review Here!</a>
+                            <a class="btn btn-warning" asp-area="" asp-controller="UsersPictures" asp-action="UploadPicture" asp-route-id="@Model.Id">Add Picture Here!</a>
+                        </div>
                         </div>
 
                     </div>

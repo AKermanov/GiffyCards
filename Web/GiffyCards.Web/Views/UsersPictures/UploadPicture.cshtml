@@ -1,0 +1,24 @@
+﻿@model GiffyCards.Web.ViewModels.Pictures.CreatePictureInputModel
+@{
+    this.ViewData["Title"] = "Add new Picture";
+}
+
+<form method="post" class="col-md-6 offset-md-3"
+      enctype="multipart/form-data">
+    <h1>@this.ViewData["Title"]</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="PhotoText"></label>
+        <textarea asp-for="PhotoText" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="PhotoText" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Images"></label>
+        <input asp-for="Images" class="form-control" />
+        <span asp-validation-for="Images" class="text-danger"></span>
+    </div>
+    <input type="text" hidden id="id" name="cigarId" value="@Context.Request.RouteValues["id"]" />
+    <input value="Upload Picture" type="submit" class="btn btn-primary" />
+</form>
+
