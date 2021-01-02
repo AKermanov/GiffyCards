@@ -1,11 +1,12 @@
 ﻿namespace GiffyCards.Web.Controllers
 {
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels.ShoppingCart;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
 
     public class ShoppingCartController : Controller
     {

@@ -1,0 +1,39 @@
+﻿@model GiffyCards.Web.ViewModels.Reviews.UsersReviewsListModel
+
+<h1>MY REVIEWS</h1>
+
+<table class="table table-bordered table-hover table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">User's Name</th>
+            <th scope="col">Review Text</th>
+            <th scope="col">Score</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ReviewList)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.ReviewText
+                </td>
+                <td>
+                    @item.Score
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-area="" asp-controller="Reviews" asp-action="EditReview" asp-route-id="@item.Id">EDIT</a>
+                </td>
+                 <td>
+                     <form method="post" asp-action="Delete">
+                         <input type="hidden" name="id" asp-for="@item.Id" />
+                         <input type="submit" value="Delete" class="btn btn-danger" />
+                     </form>
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>

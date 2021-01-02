@@ -1,6 +1,9 @@
 ﻿namespace GiffyCards.Web.ViewModels.Tastes
 {
-   public class TastesViewModel
+    using GiffyCards.Data.Models;
+    using GiffyCards.Services.Mapping;
+
+    public class TastesViewModel : IMapFrom<Taste>
     {
         public int Id { get; set; }
 

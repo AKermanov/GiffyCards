@@ -1,11 +1,14 @@
 ﻿namespace GiffyCards.Web.ViewModels.Strenghts
 {
-   public class StrnghtsViewModel
+    using GiffyCards.Data.Models;
+    using GiffyCards.Services.Mapping;
+
+    public class StrnghtsViewModel : IMapFrom<Strenght>
     {
         public int Id { get; set; }
 
         public string StrenghtType { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string PictureUrl { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 {
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels;
+    using GiffyCards.Web.ViewModels.Strenghts;
     using Microsoft.AspNetCore.Mvc;
 
     public class StrenghtsController : Controller
@@ -19,7 +20,7 @@
         {
             var viewModel = new StrenghtsList
             {
-                StrenghtsLists = this.strenghtsService.AllStrenghts(),
+                StrenghtsLists = this.strenghtsService.AllStrenghts<StrnghtsViewModel>(),
             };
 
             return this.View(viewModel);

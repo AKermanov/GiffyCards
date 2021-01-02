@@ -6,7 +6,7 @@
     @foreach (var str in this.Model.StrenghtsLists)
     {
         <div class="media col-md-4">
-            <img src="@str.ImageUrl" width="100" class="mr-3 img-responsive">
+            <img src="@str.PictureUrl" width="100" class="mr-3 img-responsive">
             <div class="media-body">
                 <h5 class="mt-0"><a asp-action="ShowCigarWithStrength" asp-route-id="@str.Id">@str.StrenghtType</a></h5>
             </div>

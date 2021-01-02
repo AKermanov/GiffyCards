@@ -2,6 +2,7 @@
 {
     using GiffyCards.Services.Data;
     using GiffyCards.Web.ViewModels;
+    using GiffyCards.Web.ViewModels.Tastes;
     using Microsoft.AspNetCore.Mvc;
 
     public class TastesController : Controller
@@ -19,7 +20,7 @@
         {
             var viewModel = new TastesLists
             {
-                TastsLists = this.tastesService.AllTastes(),
+                TastsLists = this.tastesService.AllTastes<TastesViewModel>(),
             };
 
             return this.View(viewModel);

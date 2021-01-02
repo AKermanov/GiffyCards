@@ -1,9 +1,12 @@
 ﻿namespace GiffyCards.Web.ViewModels.Cigar
 {
-    using System.ComponentModel.DataAnnotations;
+    using GiffyCards.Data.Models;
+    using GiffyCards.Services.Mapping;
 
-    public class ReviewsViewModel
+    public class ReviewsViewModel : IMapFrom<Review>
     {
+        public int Id { get; set; }
+
         public byte Score { get; set; }
 
         public string ReviewText { get; set; }

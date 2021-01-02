@@ -5,6 +5,7 @@
 
     using GiffyCards.Data.Common.Repositories;
     using GiffyCards.Data.Models;
+    using GiffyCards.Services.Mapping;
     using GiffyCards.Web.ViewModels.Strenghts;
 
     public class StrenghtService : IStrenghtService
@@ -16,14 +17,14 @@
             this.strenght = strenghtRepository;
         }
 
-        public IEnumerable<StrnghtsViewModel> AllStrenghts()
+        public IEnumerable<T> AllStrenghts<T>()
         {
-            return this.strenght.AllAsNoTracking().Select(x => new StrnghtsViewModel
-            {
-                Id = x.Id,
-                StrenghtType = x.StrenghtType.ToUpper(),
-                ImageUrl = x.PictureUrl,
-            }).ToList();
+            var all = this.strenght.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
+                .To<T>()
+                .ToList();
+
+            return all;
         }
 
         public StrnghtsViewModel CurrentStrenght(int id)
@@ -32,7 +33,7 @@
                  x => new StrnghtsViewModel
                  {
                      Id = x.Id,
-                     ImageUrl = x.PictureUrl,
+                     PictureUrl = x.PictureUrl,
                      StrenghtType = x.StrenghtType,
                  })
                  .FirstOrDefault(x => x.Id == id);

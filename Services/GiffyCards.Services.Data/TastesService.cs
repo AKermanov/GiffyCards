@@ -5,6 +5,7 @@
 
     using GiffyCards.Data.Common.Repositories;
     using GiffyCards.Data.Models;
+    using GiffyCards.Services.Mapping;
     using GiffyCards.Web.ViewModels.Tastes;
 
     public class TastesService : ITastesService
@@ -16,14 +17,9 @@
             this.tasteRepository = tasteRepository;
         }
 
-        public IEnumerable<TastesViewModel> AllTastes()
+        public IEnumerable<T> AllTastes<T>()
         {
-            return this.tasteRepository.AllAsNoTracking().Select(x => new TastesViewModel
-            {
-                Id = x.Id,
-                TasteType = x.TasteType.ToUpper(),
-                ImageUrl = x.ImageUrl,
-            }).ToList();
+            return this.tasteRepository.AllAsNoTracking().To<T>().ToList();
         }
 
         public TastesViewModel CurrentTaste(int id)

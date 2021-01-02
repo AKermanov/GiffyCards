@@ -2,6 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
+    using GiffyCards.Data.Models;
+    using GiffyCards.Services.Mapping;
+
     public class ReviewInputModel
     {
         [Range(1, 5)]
@@ -22,5 +25,7 @@
         public string Email { get; set; }
 
         public int? CigarId { get; set; }
+
+        public int AccessorieId { get; set; }
     }
 }

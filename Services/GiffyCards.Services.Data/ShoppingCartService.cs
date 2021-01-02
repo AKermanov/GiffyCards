@@ -1,13 +1,14 @@
-﻿using GiffyCards.Data.Common.Repositories;
-using GiffyCards.Data.Models;
-using GiffyCards.Web.ViewModels.ShoppingCart;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GiffyCards.Services.Data
+﻿namespace GiffyCards.Services.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using GiffyCards.Data.Common.Repositories;
+    using GiffyCards.Data.Models;
+    using GiffyCards.Web.ViewModels.ShoppingCart;
+
     public class ShoppingCartService : IShoppingCartService
     {
         private readonly IDeletableEntityRepository<Cigar> cigarEntity;

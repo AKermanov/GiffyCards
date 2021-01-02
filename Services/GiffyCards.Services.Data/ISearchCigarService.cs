@@ -1,7 +1,8 @@
 ﻿namespace GiffyCards.Services.Data
 {
-    using GiffyCards.Web.ViewModels.Brands;
     using System.Collections.Generic;
+
+    using GiffyCards.Web.ViewModels.Brands;
 
     public interface ISearchCigarService
     {

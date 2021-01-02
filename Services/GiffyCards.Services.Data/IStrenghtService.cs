@@ -6,7 +6,7 @@
 
     public interface IStrenghtService
     {
-        IEnumerable<StrnghtsViewModel> AllStrenghts();
+        IEnumerable<T> AllStrenghts<T>();
 
         StrnghtsViewModel CurrentStrenght(int id);
     }

@@ -13,12 +13,10 @@
     public class CigarService : ICigarService
     {
         private readonly IDeletableEntityRepository<Cigar> cigarRepository;
-        private readonly IRepository<Review> reviewRepository;
 
-        public CigarService(IDeletableEntityRepository<Cigar> cigarRepository, IRepository<Review> reviewRepository)
+        public CigarService(IDeletableEntityRepository<Cigar> cigarRepository)
         {
             this.cigarRepository = cigarRepository;
-            this.reviewRepository = reviewRepository;
         }
 
         public IEnumerable<CigarWithBrandViewModel> CiagrWithSpesificShape(int shapeId)
